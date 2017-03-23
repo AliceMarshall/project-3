@@ -1,2 +1,4 @@
 # Project 3
-Alice Marshall
+###Alice Marshall
+###Adrian Welch
+###Sarah Miller
