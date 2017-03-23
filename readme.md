@@ -1,2 +1,3 @@
 # Project 3
-Adrian Welch 
+Adrian Welch
+Sarah Miller
