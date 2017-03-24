@@ -1,16 +1,16 @@
 const router = require('express').Router();
-const dateNights = require('../controllers/dateNights');
+const dateNight = require('../controllers/dateNight');
 const auth = require('../controllers/auth');
 const imageUpload = require('../lib/imageUpload');
 const secureRoute = require('../lib/secureRoute');
 
-router.route('/dateNights')
-  .get(dateNights.index)
-  .post(secureRoute, imageUpload, dateNights.create);
+router.route('/dateNight')
+  .get(dateNight.index)
+  .post(secureRoute, imageUpload, dateNight.create);
 
-router.route('/dateNights/:id')
-  .get(secureRoute, dateNights.show)
-  .delete(secureRoute, dateNights.delete);
+router.route('/dateNight/:id')
+  .get(secureRoute, dateNight.show)
+  .delete(secureRoute, dateNight.delete);
 
 router.route('/register')
   .post(auth.register);
