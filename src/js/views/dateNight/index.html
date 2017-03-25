@@ -3,7 +3,13 @@
   <div ng-repeat="dateNight in dateNightsIndex.all" class="col-md-6">
     <img ng-src="{{ dateNight.image}}">
 
-    <h2>{{ dateNight.name }}</h2>
-    <p><strong>{{ dateNight.when }}</strong> {{ dateNight.cinema.name }} {{ dateNight.restaurant.name }}</p>
+    <h2>{{ dateNight.nameOfDate }}</h2>
+    <p>{{ dateNight.when }}</p>
+    <p> {{ dateNight.cinema.name }}</p>
+    <p> {{ dateNight.restaurant.name }}</p>
+
+    <div>
+    <span uib-rating ng-model="dateNightsIndex.rating" max="10" read-only="true"></span>
+  </div>
   </div>
 </div>
