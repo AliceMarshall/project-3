@@ -32,7 +32,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('dateNightsShow', {//shows details of the date record
       url: '/dateNights/:id',
       templateUrl: 'js/views/dateNights/show.html',
-      controller: 'dateNightsShowCtrl as datesShow'
+      controller: 'dateNightsShowCtrl as dateNightsShow'
     })
 
     .state('usersIndex', {//index of all date created by that user.

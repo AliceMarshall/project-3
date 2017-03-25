@@ -30,19 +30,24 @@ function dateNightsNewCtrl(DateNight, $state) {
   vm.create = dateNightsCreate;
 }
 
-dateNightsShowCtrl.$inject = ['DateNight', '$stateParams', '$state'];
+dateNightsShowCtrl.$inject = ['DateNight', '$stateParams', '$state', '$uibModal'];
 
-function dateNightsShowCtrl(DateNight, $stateParams, $state) {
+function dateNightsShowCtrl(DateNight, $stateParams, $state, $uibModal) {
   const vm = this;
   vm.dateNight = DateNight.get($stateParams);
 
-  function dateNightsDelete() {
-    vm.dateNight
-      .$remove()
-      .then(() => $state.go('dateNightsIndex'));
+  function openModal(){
+    $uibModal.open({
+      templateUrl: 'js/views/partials/dateNightDeleteModal.html',
+      controller: 'dateNightDeleteCtrl as dateNightsDelete',
+      resolve: {
+        currentDateNight: () => {
+          return vm.dateNight; //already have the vm.bird from the database so just pass in.
+        }
+      }
+    });
   }
-
-  vm.delete = dateNightsDelete;
+  vm.open = openModal;
 }
 
 dateNightsEditCtrl.$inject = ['DateNight', '$stateParams', '$state'];
