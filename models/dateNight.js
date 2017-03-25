@@ -8,7 +8,7 @@ const dateNightSchema = new mongoose.Schema({
   rating: { type: Number },
   comments: { type: String },
   complete: { type: Boolean },
-  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  // createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   cinema: {
     name: { type: String },
     lat: { type: Number },
@@ -40,6 +40,7 @@ dateNightSchema.pre('save', function checkPreviousImage(next) {
   if(this.isModified('image') && this._image) {
     return s3.deleteObject({ Key: this._image }, next);
   }
+  next();
 });
 
 dateNightSchema.pre('remove', function deleteImage(next) {
