@@ -1,0 +1,9 @@
+
+<div class="row">
+  <div ng-repeat="dateNight in dateNightsIndex.all" class="col-md-6">
+    <img ng-src="{{ dateNight.image}}">
+
+    <h2>{{ dateNight.name }}</h2>
+    <p><strong>{{ dateNight.when }}</strong> {{ dateNight.cinema.name }} {{ dateNight.restaurant.name }}</p>
+  </div>
+</div>

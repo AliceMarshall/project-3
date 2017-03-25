@@ -5,7 +5,7 @@ angular
 MainCtrl.$inject = ['$rootScope', '$state', '$auth'];
 function MainCtrl($rootScope, $state, $auth) {
   const vm = this;
-  vm.navIsOpen = false;
+  vm.isNavCollapsed = true;
 
   vm.isAuthenticated = $auth.isAuthenticated;
 
@@ -18,7 +18,7 @@ function MainCtrl($rootScope, $state, $auth) {
   $rootScope.$on('$stateChangeSuccess', () => {
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
-    vm.navIsOpen = false;
+    vm.isNavCollapsed = true;
     //checks if there's a token
     if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
   });

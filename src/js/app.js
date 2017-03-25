@@ -1,2 +1,2 @@
 angular
-  .module('dateApp', ['ui.router', 'ngResource', 'satellizer']);
+  .module('dateApp', ['ui.router', 'ngResource', 'satellizer', 'ui.bootstrap', 'ngAnimate']);

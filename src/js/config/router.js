@@ -10,7 +10,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('home', {//homepage - with logo
       url: '/',
       templateUrl: 'js/views/index.html',
-      controller: 'mainCtrl as main'
+      controller: 'MainCtrl as main'
     })
     .state('datesIndex', {//index page for all dates created by all users
       url: '/dates/Index',
