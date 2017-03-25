@@ -1,0 +1,20 @@
+<div class="form">
+   <form name="login.loginForm" ng-submit="login.submit()" novalidate>
+     <div>
+       <label for="email">Email</label>
+       <input type="text" required name="email" id="email" ng-model="login.credentials.email" ng-pattern="/@/">
+       <div ng-messages="login.loginForm.email.$error" ng-show="login.loginForm.$submitted || login.loginForm.email.$touched" role="alert">
+         <div ng-message="required">Your email address is required.</div>
+         <div ng-message="pattern">Please enter a valid email address.</div>
+       </div>
+     </div>
+     <div>
+       <label for="password">Password</label>
+       <input type="password" required name="password" id="password" ng-model="login.credentials.password">
+       <div ng-messages="login.loginForm.password.$error" ng-show="login.loginForm.$submitted || login.loginForm.password.$touched" role="alert">
+         <div ng-message="required">Your password is required.</div>
+       </div>
+     </div>
+     <button class="button" ng-disabled="login.studentForm.$invalid">Login</button>
+   </form>
+ </div>
