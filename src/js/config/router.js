@@ -36,8 +36,8 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     })
 
     .state('usersIndex', {//index of all date created by that user.
-      url: '/user/:id',
-      templateUrl: 'js/views/users/index.html',
+      url: '/users/:id',
+      templateUrl: 'js/views/users/show.html',
       controller: 'usersIndexCtrl as usersIndex'
     })
 

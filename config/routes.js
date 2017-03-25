@@ -3,6 +3,7 @@ const dateNight = require('../controllers/dateNight');
 const auth = require('../controllers/auth');
 const imageUpload = require('../lib/imageUpload');
 const secureRoute = require('../lib/secureRoute');
+const users = require('../controllers/users');
 
 router.route('/dateNight')
   .get(dateNight.index)
@@ -11,6 +12,15 @@ router.route('/dateNight')
 router.route('/dateNight/:id')
   .get(secureRoute, dateNight.show)
   .delete(secureRoute, dateNight.delete);
+
+router.route('/users')
+  .get(users.index);
+
+router.route('/users/:id')
+  .all(secureRoute)
+  .get(users.show)
+  .delete(users.delete)
+  .put(users.update);
 
 router.route('/register')
   .post(auth.register);
