@@ -12,27 +12,27 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'js/views/index.html',
       controller: 'MainCtrl as main'
     })
-    .state('datesIndex', {//index page for all dates created by all users
-      url: '/dates/Index',
-      templateUrl: 'js/views/dates/new.html',
-      controller: 'datesIndexCtrl as datesIndex'
+    .state('dateNightsIndex', {//index page for all dates created by all users
+      url: '/dateNights/Index',
+      templateUrl: 'js/views/dateNights/new.html',
+      controller: 'dateNightsIndexCtrl as dateNightsIndex'
     })
-    .state('datesNew', {//new date form page
-      url: '/dates/new',
-      templateUrl: 'js/views/dates/new.html',
-      controller: 'datesNewCtrl as datesNew'
-    })
-
-    .state('datesEdit', {//google maps page
-      url: '/dates/:id/edit',
-      templateUrl: 'js/views/dates/edit.html',
-      controller: 'datesEditCtrl as datesEdit'
+    .state('dateNightsNew', {//new date form page
+      url: '/dateNights/new',
+      templateUrl: 'js/views/dateNights/new.html',
+      controller: 'dateNightsNewCtrl as dateNightsNew'
     })
 
-    .state('datesShow', {//shows details of the date record
-      url: '/dates/:id',
-      templateUrl: 'js/views/dates/show.html',
-      controller: 'datesShowCtrl as datesShow'
+    .state('dateNightsEdit', {//google maps page
+      url: '/dateNights/:id/edit',
+      templateUrl: 'js/views/dateNights/edit.html',
+      controller: 'dateNightsEditCtrl as dateNightsEdit'
+    })
+
+    .state('dateNightsShow', {//shows details of the date record
+      url: '/dateNights/:id',
+      templateUrl: 'js/views/dateNights/show.html',
+      controller: 'dateNightsShowCtrl as datesShow'
     })
 
     .state('usersIndex', {//index of all date created by that user.
