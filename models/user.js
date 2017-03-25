@@ -5,8 +5,10 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true},
   password: {type: String, required: true},
   address: { type: String },
-  lat: { type: Number },
-  lng: { type: Number }
+  geometry: {
+    lat: { type: Number },
+    lng: { type: Number }
+  }
 });
 
 module.exports = mongoose.model('User', userSchema);
