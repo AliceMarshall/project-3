@@ -9,12 +9,12 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('home', {//homepage - with logo
       url: '/',
-      templateUrl: 'js/views/index.html',
+      templateUrl: 'js/index.html',
       controller: 'MainCtrl as main'
     })
     .state('dateNightsIndex', {//index page for all dates created by all users
-      url: '/dateNights/Index',
-      templateUrl: 'js/views/dateNights/new.html',
+      url: '/dateNights/index',
+      templateUrl: 'js/views/dateNights/index.html',
       controller: 'dateNightsIndexCtrl as dateNightsIndex'
     })
     .state('dateNightsNew', {//new date form page

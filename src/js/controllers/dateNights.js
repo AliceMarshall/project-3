@@ -29,10 +29,10 @@ function dateNightsNewCtrl(DateNight, $state) {
   vm.create = dateNightsCreate;
 }
 
-dateNightsShowCtrl.$inject = ['DateNight', 'DateNightComment', '$stateParams', '$state'];
-function dateNightsShowCtrl(DateNight, DateNightComment, $stateParams, $state) {
+dateNightsShowCtrl.$inject = ['DateNight', '$stateParams', '$state'];
+
+function dateNightsShowCtrl(DateNight, $stateParams, $state) {
   const vm = this;
-  vm.newComment = {};
   vm.dateNight = DateNight.get($stateParams);
 
   function dateNightsDelete() {
@@ -42,30 +42,7 @@ function dateNightsShowCtrl(DateNight, DateNightComment, $stateParams, $state) {
   }
 
   vm.delete = dateNightsDelete;
-
-  function addComment() {
-    DateNightComment
-      .save({ dateNightId: vm.dateNight.id}, vm.newComment)
-      .$promise
-      .then((comment) => {
-        vm.dateNight.comments.push(comment);
-        vm.newComment = {};
-      });
-  }
-  vm.addComment = addComment;
-
-  function deleteComment(comment) {
-    DateNightComment
-      .delete({ dateNightId: vm.dateNight.id, id: comment.id })
-      .$promise
-      .then(() => {
-        const index = vm.dateNight.comments.indexOf(comment);
-        vm.dateNight.comments.splice(index, 1);
-      });
-  }
-
-  vm.deleteComment = deleteComment;
-}
+}  
 
 dateNightsEditCtrl.$inject = ['DateNight', '$stateParams', '$state'];
 function dateNightsEditCtrl(DateNight, $stateParams, $state) {
