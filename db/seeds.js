@@ -14,6 +14,7 @@ User.create([{
   username: 'Sarah',
   email: 'email@hello',
   password: 'a',
+  passwordConfirmation: 'a',
   address: 'GA',
   lat: 52.525,
   lng: -0.0822
