@@ -8,6 +8,7 @@ const imageUpload = require('../lib/imageUpload');
 router.route('/dateNight')
   .get(dateNight.index)
   .post(imageUpload, dateNight.create);
+  // .post(dateNight.create);
 
 router.route('/dateNight/:id')
   .get( dateNight.show)

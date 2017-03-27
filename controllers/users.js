@@ -3,6 +3,7 @@ const User = require('../models/user');
 function indexRoute(req, res, next) {
   User
     .find()
+    .exec()
     .then((users) => res.json(users))
     .catch(next);
 }
