@@ -1,1 +1,1 @@
-<google-map cinemas="cinemas.all" ng-if="cinemas.all.length" user="main.data.user"></google-map>
+<google-map cinemas="cinemas.all" ng-if="cinemas.all.length && main.currentUser.$resolved" user="main.currentUser"></google-map>

@@ -1,39 +1,53 @@
 const rp = require('request-promise');
 const Promise = require('bluebird');
 
-function cinemasIntersect(req, res) {
+function cinemasIntersect(req, res, next) {
   const baseUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json';
+  const params = {
+    method: 'GET',
+    url: baseUrl,
+    json: true,
+    qs: {
+      radius: 5000,
+      types: 'movie_theater',
+      key: 'AIzaSyCBWeADJJNAJImgP8z5JJVsoISm6kp8W7U'
+    }
+  };
+
+  function getAllResults(lat, lng) {
+    params.qs.location = `${lat},${lng}`;
+    let allResults = [];
+    return new Promise((resolve, reject) => {
+
+      function makeRequest() {
+        rp(params)
+          .then((response) => {
+            console.log(response);
+            if(response.status === 'INVALID_REQUEST') return makeRequest();
+            if(response.status !== 'OK') reject(new Error(response.status));
+
+            allResults = allResults.concat(response.results);
+
+            if(response.next_page_token) {
+              params.qs.pagetoken = response.next_page_token;
+              return makeRequest();
+            }
+
+            return resolve(allResults);
+          });
+      }
+
+      makeRequest();
+    });
+  }
 
   Promise.props({
-    locationA: rp({
-      method: 'GET',
-      url: baseUrl,
-      qs: {
-        location: '51.544220,-0.146983',
-        radius: 5000,
-        types: 'movie_theater',
-        key: 'AIzaSyDk6chpvhQ_n1eKCKyAV_QaUIWgi9fHF3Y'
-      },
-      json: true
-    }),
-    locationB: rp({
-      method: 'GET',
-      url: baseUrl,
-      qs: {
-        location: '51.544235,-0.051672',
-        radius: 5000,
-        types: 'movie_theater',
-        key: 'AIzaSyDk6chpvhQ_n1eKCKyAV_QaUIWgi9fHF3Y'
-      },
-      json: true
-    })
-
+    locationA: getAllResults(51.544235, -0.051672),
+    locationB: getAllResults(req.query.userLat, req.query.userLng)
   })
-  .then((result) => {
-    //{ locationA: { results: [{},{}] }, locationB: { results: [{},{}] } };
-    // return result;
-    // do your intersection functionality
-    const resultSet = result.locationA.results.concat(result.locationB.results);
+  .then((response) => {
+    console.log(response);
+    const resultSet = response.locationA.concat(response.locationB);
     const ids = [];
     const filteredResults = resultSet.filter((obj) => {
       if(ids.includes(obj.place_id)) {
@@ -42,9 +56,11 @@ function cinemasIntersect(req, res) {
         ids.push(obj.place_id);
         return false;
       }
+
     });
     res.json(filteredResults);
-  });
+  })
+  .catch(next);
 }
 
 module.exports = {
