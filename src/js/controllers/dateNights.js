@@ -19,20 +19,13 @@ function DateNightsNewCtrl(DateNight, $state) {
   vm.dateNight = {};
 
   function dateNightsCreate() {
-
-dateNightsNewCtrl.$inject = ['DateNight', '$state'];
-function dateNightsNewCtrl(DateNight, $state) {
-  const vm = this;
-  vm.DateNight = {};
-
-  function dateNightCreate() {
     DateNight
       .save(vm.dateNight)
       .$promise
       .then(() => $state.go('dateNightsIndex'));
   }
 
-  vm.create = dateNightCreate;
+  vm.create = dateNightsCreate;
 }
 
 DateNightsShowCtrl.$inject = ['DateNight', '$stateParams', '$state', '$uibModal'];
