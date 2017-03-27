@@ -1,46 +1,48 @@
 <div class="row">
-<div class="col-md-8 col-md-offset-2">
-<div class="form-group">
-   <form name="register.registerForm" ng-submit="register.submit()" novalidate>
-     <div>
-       <label for="username">Username</label>
-       <input type="text" class="form-control" required name="username" id="username" ng-model="register.user.username">
-       <div ng-messages="register.registerForm.username.$error" ng-show="register.registerForm.$submitted || register.registerForm.username.$touched || register.registerForm.username.$empty" role="alert">
-         <div ng-message="required">Username is required.</div>
+  <div class="col-md-8 col-md-offset-2">
+  <div class="form-group">
+     <form name="register.registerForm" ng-submit="register.submit()" novalidate>
+       <div>
+         <label for="username">Username</label>
+         <input type="text" class="form-control" required name="username" id="username" ng-model="register.user.username">
+         <div ng-messages="register.registerForm.username.$error" ng-show="register.registerForm.$submitted || register.registerForm.username.$touched || register.registerForm.username.$empty" role="alert">
+           <div ng-message="required">Username is required.</div>
+         </div>
        </div>
-     </div>
-     <div>
-       <label for="address">Address</label>
-       <input type="text" class="form-control" autocomplete ng-model="register.user.address" geometry="register.user.geometry" required name="address" id="address">
-       <p>The user object: {{ register.user }}</p>
-       <div ng-messages="register.registerForm.address.$error" ng-show="register.registerForm.$submitted || register.registerForm.address.$touched" role="alert">
-         <div ng-message="required">Address is required.</div>
+       <div>
+         <label for="address">Address</label>
+         <input type="text" class="form-control" autocomplete ng-model="register.user.address" geometry="register.user.geometry" required name="address" id="address">
+         <p>The user object: {{ register.user }}</p>
+         <div ng-messages="register.registerForm.address.$error" ng-show="register.registerForm.$submitted || register.registerForm.address.$touched" role="alert">
+           <div ng-message="required">Address is required.</div>
+         </div>
+         <input type="hidden" ng-model="user.lat" name="lat">
+         <input type="hidden" ng-model="user.lng" name="lng">
        </div>
-       <input type="hidden" ng-model="user.lat" name="lat">
-       <input type="hidden" ng-model="user.lng" name="lng">
-     </div>
-     <div>
-       <label for="email">Email</label>
-       <input type="email" class="form-control" required name="email" id="email" ng-model="register.user.email">
-       <div ng-messages="register.registerForm.email.$error" ng-show="register.registerForm.$submitted || register.registerForm.email.$touched" role="alert">
-         <div ng-message="required">Email is required.</div>
-         <div ng-message="email">A valid email address is required.</div>
-     </div>
-      </div>
-     <div>
-       <label for="password">Password</label>
-       <input type="password" class="form-control" required name="password" id="password" ng-model="register.user.password">
-       <div ng-messages="register.registerForm.password.$error" ng-show="register.registerForm.$submitted || register.registerForm.password.$touched" role="alert">
-         <div ng-message="required">Password is required.</div>
+       <div>
+         <label for="email">Email</label>
+         <input type="email" class="form-control" required name="email" id="email" ng-model="register.user.email">
+         <div ng-messages="register.registerForm.email.$error" ng-show="register.registerForm.$submitted || register.registerForm.email.$touched" role="alert">
+           <div ng-message="required">Email is required.</div>
+           <div ng-message="email">A valid email address is required.</div>
        </div>
-     </div>
-     <div>
-       <label for="passwordConfirmation">Password Confirmation</label>
-       <input type="password" class="form-control" required name="passwordConfirmation" id="passwordConfirmation" ng-model="register.user.passwordConfirmation">
-       <div ng-messages="register.registerForm.passwordConfirmation.$error" ng-show="register.registerForm.$submitted || register.registerForm.passwordConfirmation.$touched" role="alert">
-         <div ng-message="required">A Password Confirmation is required.</div>
+        </div>
+       <div>
+         <label for="password">Password</label>
+         <input type="password" class="form-control" required name="password" id="password" ng-model="register.user.password">
+         <div ng-messages="register.registerForm.password.$error" ng-show="register.registerForm.$submitted || register.registerForm.password.$touched" role="alert">
+           <div ng-message="required">Password is required.</div>
+         </div>
        </div>
-     </div>
-     <button class="button" ng-disabled="register.registerForm.$invalid">Register</button>
-   </form>
- </div>
+       <div>
+         <label for="passwordConfirmation">Password Confirmation</label>
+         <input type="password" class="form-control" required name="passwordConfirmation" id="passwordConfirmation" ng-model="register.user.passwordConfirmation">
+         <div ng-messages="register.registerForm.passwordConfirmation.$error" ng-show="register.registerForm.$submitted || register.registerForm.passwordConfirmation.$touched" role="alert">
+           <div ng-message="required">A Password Confirmation is required.</div>
+         </div>
+       </div>
+       <button class="button" ng-disabled="register.registerForm.$invalid">Register</button>
+     </form>
+   </div>
+  </div>
+</div>

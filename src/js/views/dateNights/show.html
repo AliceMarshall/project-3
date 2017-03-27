@@ -1,17 +1,14 @@
 <div class="row">
   <div class="col-md-6">
-
     <h2>{{ dateNightShow.nameOfDate }}</h2>
-
-        <img ng-src="{{ dateNightShow.image}}">
-
-        <p>{{ dateNightShow.when }}</p>
-        <p> {{ dateNightShow.cinema.name }}</p>
-        <p> {{ dateNightShow.cinema.film }}</p>
-        <p> {{ dateNightShow.restaurant.name }}</p>
-        <div>
-        <span uib-rating ng-model="dateNightShow.rating" max="10" read-only="true"></span>
-      </div>
-      </div>
-        <button ng-click="dateNightShow.open()" class="btn btn-danger">Delete</button>
+    <img ng-src="{{ dateNightShow.image}}">
+    <p>{{ dateNightShow.when }}</p>
+    <p> {{ dateNightShow.cinema.name }}</p>
+    <p> {{ dateNightShow.cinema.film }}</p>
+    <p> {{ dateNightShow.restaurant.name }}</p>
+    <div>
+      <span uib-rating ng-model="dateNightShow.rating" max="10" read-only="true"></span>
     </div>
+  </div>
+  <button ng-click="dateNightShow.open()" class="btn btn-danger">Delete</button>
+</div>

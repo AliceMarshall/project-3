@@ -26,7 +26,11 @@ function LoginCtrl($auth, $state) {
   function submit() {
     if (vm.loginForm.$valid) {
       $auth.login(vm.credentials)
-        .then(() => $state.go('usersIndex'));
+        .then(() => {
+          const currentUserId = $auth.getPayload().userId;
+          console.log('userId', currentUserId);
+          $state.go('usersShow', { id: currentUserId });
+        });
     }
   }
 
