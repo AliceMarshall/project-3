@@ -15,9 +15,6 @@ function googleMap($window) {
     },
     link($scope, element) {
       // console.log('scope', $scope.cinemas);
-      console.log('user scope', $scope.user.geometry.lat);
-
-      // const userLat = ;
       const map = new $window.google.maps.Map(element[0], {
         zoom: 12,
         center: { lat: ((($scope.user.geometry.lat-51.544235)/2)+51.544235), lng: ((($scope.user.geometry.lng+0.051672)/2)-0.051672) },
@@ -58,7 +55,8 @@ function googleMap($window) {
         const marker = new google.maps.Marker({
           position: latLng,
           map: map,
-          animation: google.maps.Animation.DROP
+          animation: google.maps.Animation.DROP,
+          label: cinema.name
           // icon: '/assets/restaurant.svg' // Adding a custom icon
         });
         const markers = [];

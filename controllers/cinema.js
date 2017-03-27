@@ -42,7 +42,7 @@ function cinemasIntersect(req, res, next) {
   }
 
   Promise.props({
-    locationA: getAllResults(51.544235, -0.051672),
+    locationA: getAllResults(51.544237, -0.051679),
     locationB: getAllResults(req.query.userLat, req.query.userLng)
   })
   .then((response) => {
