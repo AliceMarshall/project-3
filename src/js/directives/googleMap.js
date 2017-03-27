@@ -10,13 +10,17 @@ function googleMap($window) {
     template: '<div class="google-map"></div>',
     scope: {
       center: '=',
-      cinemas: '='
+      cinemas: '=',
+      user: '='
     },
     link($scope, element) {
-      console.log('scope', $scope.cinemas);
+      // console.log('scope', $scope.cinemas);
+      console.log('lat', $scope.user);
+
+      // const userLat = ;
       const map = new $window.google.maps.Map(element[0], {
         zoom: 12,
-        center: { lat: 51.544235, lng: -0.051672 },
+        center: { lat: (((51.544235-51.544220)/2)+51.544220), lng: (((-0.051672+0.146983)/2)-0.146983) },
         scrollwheel: false
       });
       const circle1 = new google.maps.Circle({
@@ -39,22 +43,6 @@ function googleMap($window) {
         center: { lat: 51.544220, lng: -0.146983 },
         radius: 5000
       });
-
-      // const marker = new $window.google.maps.Marker({
-      //   position: { lat: 51.544235, lng: -0.051672 },
-      //   map: map,
-      //   animation: $window.google.maps.Animation.BOUNCE
-      // });
-      //
-      // $window.setTimeout(() => {
-      //   marker.setAnimation(null);
-      // }, 5000);
-
-      // for (var city in citymap) {
-        // Add the circle for this city to the map.
-
-      // }
-
       $scope.cinemas.forEach(function(cinema){
         console.log(cinema.geometry.location.lat);
         cinema.latitude = cinema.geometry.location.lat;

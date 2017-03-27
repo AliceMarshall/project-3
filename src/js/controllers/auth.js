@@ -18,17 +18,20 @@ function RegisterCtrl($auth, $state) {
   vm.submit = submit;
 }
 
-LoginCtrl.$inject = ['$auth', '$state'];
-function LoginCtrl($auth, $state) {
+LoginCtrl.$inject = ['$auth', '$state', '$rootScope'];
+function LoginCtrl($auth, $state, $rootScope) {
   const vm = this;
   vm.credentials = {};
 
   function submit() {
     if (vm.loginForm.$valid) {
       $auth.login(vm.credentials)
-        .then(() => {
+        .then((res) => {
+          // console.log('response', res);
           const currentUserId = $auth.getPayload().userId;
-          console.log('userId', currentUserId);
+          // console.log('userId', currentUserId);
+          $rootScope.$broadcast('loggedIn', res.data.user);
+          // console.log('user', res.data.user);
           $state.go('usersShow', { id: currentUserId });
         });
     }

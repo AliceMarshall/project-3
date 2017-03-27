@@ -16,8 +16,10 @@ User.create([{
   password: 'a',
   passwordConfirmation: 'a',
   address: 'GA',
-  lat: 52.525,
-  lng: -0.0822
+  geometry: {
+    lat: 51.515256,
+    lng: -0.072662
+  }
 }])
 .then((users) => {
   console.log(`${users.length} users created!`);

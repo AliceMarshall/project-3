@@ -23,7 +23,13 @@ function MainCtrl($rootScope, $state, $auth) {
     if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
   });
 
+  $rootScope.$on('loggedIn', (e, user) => {
+    vm.currentUser = user;
+    console.log(user);
+  });
+
   function logout() {
+    vm.currentUser = null;
     $auth.logout();
     $state.go('login');
   }
