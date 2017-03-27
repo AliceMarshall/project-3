@@ -13,7 +13,7 @@ router.route('/dateNight/:id')
   .get( dateNight.show)
   .delete( dateNight.delete);
 
-router.get('/cinemas', cinema.cinemas);
+router.get('/cinemas', cinema.cinemasIntersect);
 
 router.route('/register')
   .post(auth.register);

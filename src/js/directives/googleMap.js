@@ -57,9 +57,7 @@ function googleMap($window) {
 
       $scope.cinemas.forEach(function(cinema){
         cinema.latitude = cinema.geometry.location.lat;
-        console.log(cinema.latitude);
         cinema.longitude = cinema.geometry.location.lng;
-        console.log(cinema.longitude);
 
         addMarker(cinema);
       });
@@ -67,7 +65,7 @@ function googleMap($window) {
 
       function addMarker(cinema) {
         const latLng = { lat: cinema.latitude, lng: cinema.longitude };
-        console.log(latLng);
+        // console.log(latLng);
         const marker = new google.maps.Marker({
           position: latLng,
           map: map,

@@ -4,11 +4,12 @@ angular
 
 Cinemas.$inject = ['$http'];
 function Cinemas($http) {
-  this.getCinemas = function getCinemas(location) {
+  this.getCinemas = function getCinemas() {
     return $http
-            .get('/api/cinemas', { params: { location } })
-            .then((response) => {
-              return response.data;
+            .get('/api/cinemas')
+            .then((results) => {
+              console.log(results);
+              // return response.data;
             });
   };
 }

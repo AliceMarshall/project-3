@@ -10,10 +10,10 @@ function CinemaCtrl(cinemas) {
   getCinema();
 
   function getCinema() {
-    cinemas.getCinemas('51.544235,-0.051672')
+    cinemas.getCinemas()
     .then((data)=>{
-      console.log(data.results);
-      return vm.all = data.results;
+      console.log(data);
+      // return vm.all = data.results;
     });
   }
 }
