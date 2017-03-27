@@ -12,9 +12,9 @@ function showRoute(req, res, next) {
   User
   .findById(req.params.id)
   .exec()
-  .then((student) => {
-    if(!student) return res.notFound();
-    res.json(student);
+  .then((user) => {
+    if(!user) return res.notFound();
+    res.json(user);
   })
     .catch(next);
 }
