@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h2>Create Your Date</h2>
+    <form ng-submit="dateNightsNew.create()">
+      <div class="form-group">
+        <label for="name">Name of Date</label>
+        <input type="text" class="form-control" name="name" id="name" ng-model="dateNightNew.dateNight.nameOfDate">
+      </div>
+      <div class="form-group">
+        <label for="when">When's the Date?</label>
+        <input type="date" class="form-control" name="when" id="when" ng-model="dateNightNew.dateNight.when">
+      </div>
+      <div class="form-group">
+        <label for="base64">Image</label>
+        <input type="file" base64 name="base64" id="image" ng-model="dateNightsNew.dateNight.base64">
+      </div>
+      <div class="form-group">
+        <label for="name">Which Cinema Did you go to</label>
+        <input type="text" class="form-control" name="cinema.name" id="cinema.name" ng-model="dateNightNew.dateNight.cinema.name">
+      </div>
+      <div class="form-group">
+        <label for="name">Which Film Did You See</label>
+        <input type="text" class="form-control" name="film" id="film" ng-model="dateNightNew.dateNight.cinema.film">
+      </div>
+      <div class="form-group">
+        <label for="name">Which Restaurant did you go to?</label>
+        <input type="text" class="form-control" name="restaurant" id="restaurant" ng-model="dateNightNew.dateNight.restaurant.name">
+      </div>
+      <div class="form-group">
+        <label for="comments">How was the Date?</label>
+        <span uib-rating ng-model="dateNightsNew.dateNight.rating" max="10" read-only="false"></span>
+        <textarea type="text" class="form-control" name="comment" id="comments" ng-model="dateNightNew.dateNight.comments"></textarea>
+      </div>
+    </form>
+  </div>
+</div>
+<div ng-controller="CinemaCtrl as cinemas">
+  <google-map cinemas="cinemas.all" ng-if="cinemas.all.length"></google-map>
+</div>

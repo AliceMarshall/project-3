@@ -1,9 +1,9 @@
 angular
-  .module('dateNightApp')
-  .controller('DateNightIndexCtrl', DateNightIndexCtrl);
+  .module('dateApp')
+  .controller('CinemaCtrl', CinemaCtrl);
 
-DateNightIndexCtrl.$inject = ['cinemas'];
-function DateNightIndexCtrl(cinemas) {
+CinemaCtrl.$inject = ['cinemas'];
+function CinemaCtrl(cinemas) {
   const vm = this;
   vm.all = [];
 

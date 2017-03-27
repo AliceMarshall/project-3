@@ -63,7 +63,7 @@ function googleMap($window) {
 
         addMarker(cinema);
       });
-      
+
 
       function addMarker(cinema) {
         const latLng = { lat: cinema.latitude, lng: cinema.longitude };
