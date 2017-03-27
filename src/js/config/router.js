@@ -15,24 +15,24 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('dateNightsIndex', {//index page for all dates created by all users
       url: '/dateNights/index',
       templateUrl: 'js/views/dateNights/index.html',
-      controller: 'dateNightsIndexCtrl as dateNightsIndex'
+      controller: 'DateNightsIndexCtrl as dateNightsIndex'
     })
     .state('dateNightsNew', {//new date form page
       url: '/dateNights/new',
       templateUrl: 'js/views/dateNights/new.html',
-      controller: 'dateNightsNewCtrl as dateNightsNew'
+      controller: 'DateNightsNewCtrl as dateNightsNew'
     })
 
     .state('dateNightsEdit', {//google maps page
       url: '/dateNights/:id/edit',
       templateUrl: 'js/views/dateNights/edit.html',
-      controller: 'dateNightsEditCtrl as dateNightsEdit'
+      controller: 'DateNightsEditCtrl as dateNightsEdit'
     })
 
     .state('dateNightsShow', {//shows details of the date record
       url: '/dateNights/:id',
       templateUrl: 'js/views/dateNights/show.html',
-      controller: 'dateNightsShowCtrl as dateNightsShow'
+      controller: 'DateNightsShowCtrl as dateNightsShow'
     })
 
     .state('cinemas', {//shows details of the date record
@@ -44,7 +44,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('usersShow', {//index of all date created by that user.
       url: '/users/:id',
       templateUrl: 'js/views/users/show.html',
-      controller: 'usersShowCtrl as usersShow'
+      controller: 'UsersShowCtrl as usersShow'
     })
 
     .state('login', {

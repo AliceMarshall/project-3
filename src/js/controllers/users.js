@@ -1,18 +1,18 @@
 angular
   .module('dateApp')
-  .controller('usersIndexCtrl', usersIndexCtrl)
-  .controller('usersEditCtrl', usersEditCtrl)
-  .controller('usersShowCtrl', usersShowCtrl);
+  .controller('UsersIndexCtrl', UsersIndexCtrl)
+  .controller('UsersEditCtrl', UsersEditCtrl)
+  .controller('UsersShowCtrl', UsersShowCtrl);
 
-usersIndexCtrl.$inject = ['User'];
-function usersIndexCtrl(User) {
+UsersIndexCtrl.$inject = ['User'];
+function UsersIndexCtrl(User) {
   const vm = this;
 
   vm.all = User.query();
 }
 
-usersShowCtrl.$inject = ['User', '$stateParams', '$state'];
-function usersShowCtrl(User, $stateParams, $state) {
+UsersShowCtrl.$inject = ['User', '$stateParams', '$state'];
+function UsersShowCtrl(User, $stateParams, $state) {
   const vm = this;
 
   vm.user = User.get($stateParams);
@@ -26,8 +26,8 @@ function usersShowCtrl(User, $stateParams, $state) {
   vm.delete = usersDelete;
 }
 
-usersEditCtrl.$inject = ['User', '$stateParams', '$state'];
-function usersEditCtrl(User, $stateParams, $state) {
+UsersEditCtrl.$inject = ['User', '$stateParams', '$state'];
+function UsersEditCtrl(User, $stateParams, $state) {
   const vm = this;
 
   vm.user = User.get($stateParams);

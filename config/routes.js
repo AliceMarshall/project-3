@@ -9,6 +9,7 @@ const users = require('../controllers/users');
 router.route('/dateNight')
   .get(dateNight.index)
   .post(imageUpload, dateNight.create);
+  // .post(dateNight.create);
 
 router.route('/dateNight/:id')
   .get( dateNight.show)

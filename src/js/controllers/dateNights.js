@@ -1,48 +1,46 @@
 angular
   .module('dateApp')
-  .controller('dateNightsIndexCtrl', dateNightsIndexCtrl)
-  .controller('dateNightsNewCtrl', dateNightsNewCtrl)
-  .controller('dateNightsShowCtrl', dateNightsShowCtrl)
-  .controller('dateNightsEditCtrl', dateNightsEditCtrl)
-  .controller('dateNightsDeleteCtrl', dateNightsDeleteCtrl);
+  .controller('DateNightsIndexCtrl', DateNightsIndexCtrl)
+  .controller('DateNightsNewCtrl', DateNightsNewCtrl)
+  .controller('DateNightsShowCtrl', DateNightsShowCtrl)
+  .controller('DateNightsEditCtrl', DateNightsEditCtrl)
+  .controller('DateNightsDeleteCtrl', DateNightsDeleteCtrl);
 
-dateNightsIndexCtrl.$inject = ['DateNight'];
-function dateNightsIndexCtrl(DateNight) {
+DateNightsIndexCtrl.$inject = ['DateNight'];
+function DateNightsIndexCtrl(DateNight) {
   const vm = this;
 
   vm.all = DateNight.query();
 }
 
-dateNightsNewCtrl.$inject = ['DateNight', '$state'];
-function dateNightsNewCtrl(DateNight, $state) {
+DateNightsNewCtrl.$inject = ['DateNight', '$state'];
+function DateNightsNewCtrl(DateNight, $state) {
   const vm = this;
   vm.dateNight = {};
 
   function dateNightsCreate() {
-    if(vm.newForm.$valid) {
-      DateNight
-        .save(vm.dateNight)
-        .$promise
-        .then(() => $state.go('dateNightsIndex'));
-    }
+    DateNight
+      .save(vm.dateNight)
+      .$promise
+      .then(() => $state.go('dateNightsIndex'));
   }
 
   vm.create = dateNightsCreate;
 }
 
-dateNightsShowCtrl.$inject = ['DateNight', '$stateParams', '$state', '$uibModal'];
+DateNightsShowCtrl.$inject = ['DateNight', '$stateParams', '$state', '$uibModal'];
 
-function dateNightsShowCtrl(DateNight, $stateParams, $state, $uibModal) {
+function DateNightsShowCtrl(DateNight, $stateParams, $state, $uibModal) {
   const vm = this;
   vm.dateNight = DateNight.get($stateParams);
 
   function openModal(){
     $uibModal.open({
-      templateUrl: 'js/views/partials/dateNightDeleteModal.html',
-      controller: 'dateNightDeleteCtrl as dateNightsDelete',
+      templateUrl: 'js/views/partials/dateNightDelete.html',
+      controller: 'dateNightsDeleteCtrl as dateNightsDelete',
       resolve: {
         currentDateNight: () => {
-          return vm.dateNight; //already have the vm.bird from the database so just pass in.
+          return vm.dateNight;
         }
       }
     });
@@ -50,8 +48,8 @@ function dateNightsShowCtrl(DateNight, $stateParams, $state, $uibModal) {
   vm.open = openModal;
 }
 
-dateNightsEditCtrl.$inject = ['DateNight', '$stateParams', '$state'];
-function dateNightsEditCtrl(DateNight, $stateParams, $state) {
+DateNightsEditCtrl.$inject = ['DateNight', '$stateParams', '$state'];
+function DateNightsEditCtrl(DateNight, $stateParams, $state) {
   const vm = this;
 
   vm.dateNight = DateNight.get($stateParams);
@@ -65,8 +63,8 @@ function dateNightsEditCtrl(DateNight, $stateParams, $state) {
   vm.update = dateNightsUpdate;
 }
 
-dateNightsDeleteCtrl.inject = ['$uibModalInstance', 'currentDateNight', '$state'];//instance of the modal thats just been opened. The currentBird is the item from resolve
-function dateNightsDeleteCtrl($uibModalInstance, currentDateNight, $state) {
+DateNightsDeleteCtrl.inject = ['$uibModalInstance', 'currentDateNight', '$state'];//instance of the modal thats just been opened. The currentBird is the item from resolve
+function DateNightsDeleteCtrl($uibModalInstance, currentDateNight, $state) {
   const vm = this;
   vm.dateNight = currentDateNight;
 
@@ -80,7 +78,7 @@ function dateNightsDeleteCtrl($uibModalInstance, currentDateNight, $state) {
       .$remove()
       .then(() => {
         $state.go('dateNightsIndex');
-        $uibModalInstance.close();//go to birds index page and close modal
+        $uibModalInstance.close();
       });
   }
 
