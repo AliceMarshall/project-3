@@ -35,10 +35,10 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'dateNightsShowCtrl as dateNightsShow'
     })
 
-    .state('usersIndex', {//index of all date created by that user.
-      url: '/user/:id',
-      templateUrl: 'js/views/users/index.html',
-      controller: 'usersIndexCtrl as usersIndex'
+    .state('usersShow', {//index of all date created by that user.
+      url: '/users/:id',
+      templateUrl: 'js/views/users/show.html',
+      controller: 'usersShowCtrl as usersShow'
     })
 
     .state('login', {
@@ -52,7 +52,6 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'js/views/auth/register.html',
       controller: 'RegisterCtrl as register'
     });
-
 
 
   $urlRouterProvider.otherwise('/login');

@@ -3,6 +3,7 @@ const dateNight = require('../controllers/dateNight');
 const auth = require('../controllers/auth');
 const cinema = require('../controllers/cinema');
 const imageUpload = require('../lib/imageUpload');
+const users = require('../controllers/users');
 // const secureRoute = require('../lib/secureRoute');
 
 router.route('/dateNight')
@@ -12,6 +13,10 @@ router.route('/dateNight')
 router.route('/dateNight/:id')
   .get( dateNight.show)
   .delete( dateNight.delete);
+
+router.route('/users/:id')
+  .get(users.show)
+  .delete(users.delete);
 
 router.get('/cinemas', cinema.cinemas);
 
