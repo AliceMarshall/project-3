@@ -6,6 +6,9 @@ function film(req, res) {
   rp({
     method: 'GET',
     url: `${baseUrl}`,
+    // qs: {
+    //   location: 'lat' /'lng' '51.544220,-0.146983',
+    // }, going to need to grab lat lng and append to the baseURl
     json: true
   })
   .then((response) => {
@@ -19,3 +22,5 @@ function film(req, res) {
 module.exports = {
   film
 };
+
+//tomorrow set up a request for the film times, pass in cinema id, which is grabbed from the first request.

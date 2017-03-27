@@ -5,16 +5,17 @@ angular
 FilmsCtrl.$inject = ['films'];
 function FilmsCtrl(films) {
   const vm = this;
-  vm.all = [];
+  vm.info = [];
+  console.log(vm.info);
 
 
   filmsIndex();
 
   function filmsIndex() {
     films.filmsIndex()
-    .then((response) => {
-      vm.all = response.data;
-    
+    .then((filmapiInfo) => {
+      console.log(filmapiInfo);
+      vm.info = filmapiInfo;
     });
   }
 }

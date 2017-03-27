@@ -8,8 +8,12 @@ function Films($http) {
     return $http
             .get('/api/films')
             .then((response) => {
-              console.log(response.data);
-              return response.data;
+              console.log(response);
+              const filmapiInfo = {};
+              filmapiInfo.cinemaName = response.data.cinemas[0].name;
+              filmapiInfo.cinemaId = response.data.cinemas[0].id;
+              console.log(filmapiInfo.cinemaId);
+              return filmapiInfo;
             });
 
   };
