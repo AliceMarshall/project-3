@@ -2,6 +2,7 @@ const router = require('express').Router();
 const dateNight = require('../controllers/dateNight');
 const auth = require('../controllers/auth');
 const cinema = require('../controllers/cinema');
+const film = require('../controllers/film');
 const imageUpload = require('../lib/imageUpload');
 const users = require('../controllers/users');
 // const secureRoute = require('../lib/secureRoute');
@@ -17,6 +18,8 @@ router.route('/dateNight/:id')
   .delete(dateNight.delete);
 
 router.get('/cinemas', cinema.cinemasIntersect);
+
+router.get('/films', film.film);
 
 router.get('/users', users.index);
 

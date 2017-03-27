@@ -40,6 +40,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'js/views/googleMap.html',
       controller: 'CinemaCtrl as cinemas'
     })
+    .state('films', {//shows details of the date record
+      url: '/films',
+      templateUrl: 'js/views/films.html',
+      controller: 'FilmsCtrl as films'
+    })
 
     .state('usersShow', {//index of all date created by that user.
       url: '/users/:id',
