@@ -9,6 +9,9 @@ function indexRoute(req, res, next) {
 }
 
 function createRoute(req, res, next) {
+
+  if(req.file) req.body.image = req.file.filename;
+
   DateNight
     .create(req.body)
     .then((dateNight) => res.status(201).json(dateNight))
