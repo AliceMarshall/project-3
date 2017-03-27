@@ -15,6 +15,10 @@ function googleMap($window) {
     },
     link($scope, element) {
       // console.log('scope', $scope.cinemas);
+      console.log('user scope', $scope.user.geometry.lat);
+
+      // const userLat = ;
+      let infoWindow = null;
       const map = new $window.google.maps.Map(element[0], {
         zoom: 12,
         center: { lat: ((($scope.user.geometry.lat-51.544235)/2)+51.544235), lng: ((($scope.user.geometry.lng+0.051672)/2)-0.051672) },
@@ -48,22 +52,30 @@ function googleMap($window) {
         addMarker(cinema);
       });
 
-
       function addMarker(cinema) {
         const latLng = { lat: cinema.latitude, lng: cinema.longitude };
         // console.log(latLng);
         const marker = new google.maps.Marker({
           position: latLng,
-          map: map,
-          animation: google.maps.Animation.DROP,
-          label: cinema.name
+          map,
+          animation: google.maps.Animation.DROP
           // icon: '/assets/restaurant.svg' // Adding a custom icon
         });
+
         const markers = [];
         markers.push(marker);
-      }
 
+        google.maps.event.addListener(marker, 'click', function () {
+          if(infoWindow) infoWindow.close();
+          var infoWindowOptions = {
+            content: `<div><p>${cinema.name}<br>${cinema.vicinity}</p></div>`
+          };
+          infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+          infoWindow.open(map, marker);
+        });
+      }
     }
   };
+
   return directive;
 }
