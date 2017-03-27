@@ -15,6 +15,7 @@ router.route('/dateNight/:id')
   .delete( dateNight.delete);
 
 router.get('/cinemas', cinema.cinemasIntersect);
+
 router.route('/users/:id')
   .get(users.show)
   .delete(users.delete);

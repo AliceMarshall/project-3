@@ -10,10 +10,14 @@ function googleMap($window) {
     template: '<div class="google-map"></div>',
     scope: {
       center: '=',
-      cinemas: '='
+      cinemas: '=',
+      user: '='
     },
     link($scope, element) {
-      console.log('scope', $scope.cinemas);
+      // console.log('scope', $scope.cinemas);
+      console.log('lat', $scope.user);
+
+      // const userLat = ;
       const map = new $window.google.maps.Map(element[0], {
         zoom: 12,
         center: { lat: (((51.544235-51.544220)/2)+51.544220), lng: (((-0.051672+0.146983)/2)-0.146983) },

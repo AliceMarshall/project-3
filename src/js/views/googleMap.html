@@ -1,1 +1,3 @@
-<google-map cinemas="cinemas.all" ng-if="cinemas.all.length"></google-map>
+<div ng-controller="usersShowCtrl as userShow">
+  <google-map cinemas="cinemas.all" ng-if="cinemas.all.length" user="userShow.user"></google-map>
+</div>

@@ -16,7 +16,7 @@ function login(req, res, next) {
     .then((user) => {
       if(!user || !user.validatePassword(req.body.password)) return res.unauthorized();
       const token = jwt.sign({ userId: user.id }, secret, { expiresIn: '1hr' });
-      res.json({ token, message: `Welcome back ${user.username}`});
+      res.json({ token, message: `Welcome back ${user.username}`, user });
     })
     .catch(next);
 }
