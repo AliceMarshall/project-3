@@ -1,15 +1,13 @@
-
 <div class="row">
   <div ng-repeat="dateNight in dateNightsIndex.all" class="col-md-6">
-
     <img ng-src="{{ dateNight.image}}">
-    <h2><a ui-sref="dateNightsShow({ id: dateNight.id })">{{ dateNight.nameOfDate }}</h2></a>
+    <a ui-sref="dateNightsShow({ id: dateNight.id })"><h2>{{ dateNight.nameOfDate }}</h2></a>
     <p>{{ dateNight.when }}</p>
     <p> {{ dateNight.cinema.name }}</p>
     <p> {{ dateNight.restaurant.name }}</p>
 
     <div>
-    <span uib-rating ng-model="dateNightsIndex.rating" max="10" read-only="true"></span>
-  </div>
+      <span uib-rating ng-model="dateNightsIndex.rating" max="10" read-only="true"></span>
+    </div>
   </div>
 </div>

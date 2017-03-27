@@ -9,16 +9,16 @@ const users = require('../controllers/users');
 router.route('/dateNight')
   .get(dateNight.index)
   .post(imageUpload, dateNight.create);
+  // .post(dateNight.create);
 
 router.route('/dateNight/:id')
   .get( dateNight.show)
   .delete( dateNight.delete);
 
+router.get('/cinemas', cinema.cinemasIntersect);
 router.route('/users/:id')
   .get(users.show)
   .delete(users.delete);
-
-router.get('/cinemas', cinema.cinemas);
 
 router.route('/register')
   .post(auth.register);
