@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="dateNightApp">
 <head>
+  <base href="/">
   <title>Project 3</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDstsX1gCXgKVxuL-d3aKxK7_FIFp5dsY0"></script>
   <!-- inject:js -->
   <!-- endinject -->
   <!-- inject:css -->
   <!-- endinject -->
 </head>
-<body>
+<body ng-controller="DateNightIndexCtrl as dateNight">
   <h1>Project 3</h1>
+  <!-- {{ dateNight.all }} -->
+  <google-map cinemas="dateNight.all" ng-if="dateNight.all.length"></google-map>
 </body>
 </html>
