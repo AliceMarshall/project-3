@@ -1,5 +1,5 @@
 angular
-  .module('dateNightApp')
+  .module('dateApp')
   .service('cinemas', Cinemas);
 
 Cinemas.$inject = ['$http'];

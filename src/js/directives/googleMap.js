@@ -1,5 +1,5 @@
 angular
-  .module('dateNightApp')
+  .module('dateApp')
   .directive('googleMap', googleMap);
 
 googleMap.$inject = ['$window'];
