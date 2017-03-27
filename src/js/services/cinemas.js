@@ -7,9 +7,9 @@ function Cinemas($http) {
   this.getCinemas = function getCinemas() {
     return $http
             .get('/api/cinemas')
-            .then((results) => {
-              console.log(results);
-              // return response.data;
+            .then((response) => {
+              console.log(response.data);
+              return response.data;
             });
   };
 }

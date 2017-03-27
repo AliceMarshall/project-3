@@ -13,7 +13,7 @@ function googleMap($window) {
       cinemas: '='
     },
     link($scope, element) {
-      console.log($scope.cinemas);
+      console.log('scope', $scope.cinemas);
       const map = new $window.google.maps.Map(element[0], {
         zoom: 12,
         center: { lat: 51.544235, lng: -0.051672 },
@@ -56,6 +56,7 @@ function googleMap($window) {
       // }
 
       $scope.cinemas.forEach(function(cinema){
+        console.log(cinema.geometry.location.lat);
         cinema.latitude = cinema.geometry.location.lat;
         cinema.longitude = cinema.geometry.location.lng;
 

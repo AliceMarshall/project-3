@@ -12,8 +12,8 @@ function CinemaCtrl(cinemas) {
   function getCinema() {
     cinemas.getCinemas()
     .then((data)=>{
-      console.log(data);
-      // return vm.all = data.results;
+      console.log('data', data);
+      return vm.all = data;
     });
   }
 }
