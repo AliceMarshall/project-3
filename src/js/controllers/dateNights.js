@@ -37,7 +37,7 @@ function DateNightsShowCtrl(DateNight, $stateParams, $state, $uibModal) {
   function openModal(){
     $uibModal.open({
       templateUrl: 'js/views/partials/dateNightDelete.html',
-      controller: 'dateNightsDeleteCtrl as dateNightsDelete',
+      controller: 'DateNightsDeleteCtrl as dateNightsDelete',
       resolve: {
         currentDateNight: () => {
           return vm.dateNight;

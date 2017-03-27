@@ -12,8 +12,9 @@ router.route('/dateNight')
   // .post(dateNight.create);
 
 router.route('/dateNight/:id')
-  .get( dateNight.show)
-  .delete( dateNight.delete);
+  .get(dateNight.show)
+  .put(dateNight.update)
+  .delete(dateNight.delete);
 
 router.get('/cinemas', cinema.cinemasIntersect);
 
