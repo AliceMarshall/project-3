@@ -1,36 +1,38 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <h2>Create Your Date</h2>
-    <form ng-submit="dateNightsNew.create()">
+    <h2>Edit Your Date</h2>
+    <form ng-submit="dateNightsEdit.update()">
       <div class="form-group">
         <label for="name">Name of Date</label>
-        <input type="text" class="form-control" name="name" id="name" ng-model="dateNightNew.dateNight.nameOfDate">
+        <input type="text" class="form-control" name="name" id="name" ng-model="dateNightsEdit.dateNight.nameOfDate">
       </div>
       <div class="form-group">
         <label for="when">When's the Date?</label>
-        <input type="date" class="form-control" name="when" id="when" ng-model="dateNightNew.dateNight.when">
+        <input type="date" class="form-control" name="when" id="when" ng-model="dateNightsEdit.dateNight.when">
       </div>
       <div class="form-group">
         <label for="base64">Image</label>
-        <input type="file" base64 name="base64" id="image" ng-model="dateNightsNew.dateNight.base64">
+        <input type="file" base64 name="base64" id="image" ng-model="dateNightsEdit.dateNight.base64">
       </div>
       <div class="form-group">
         <label for="name">Which Cinema Did you go to</label>
-        <input type="text" class="form-control" name="cinema.name" id="cinema.name" ng-model="dateNightNew.dateNight.cinema.name">
+        <input type="text" class="form-control" name="cinema.name" id="cinema.name" ng-model="dateNightsEdit.dateNight.cinema.name">
       </div>
       <div class="form-group">
         <label for="name">Which Film Did You See</label>
-        <input type="text" class="form-control" name="film" id="film" ng-model="dateNightNew.dateNight.cinema.film">
+        <input type="text" class="form-control" name="film" id="film" ng-model="dateNightsEdit.dateNight.cinema.film">
       </div>
       <div class="form-group">
         <label for="name">Which Restaurant did you go to?</label>
-        <input type="text" class="form-control" name="restaurant" id="restaurant" ng-model="dateNightNew.dateNight.restaurant.name">
+        <input type="text" class="form-control" name="restaurant" id="restaurant" ng-model="dateNightsEdit.dateNight.restaurant.name">
       </div>
       <div class="form-group">
         <label for="comments">How was the Date?</label>
-        <span uib-rating ng-model="dateNightsNew.dateNight.rating" max="10" read-only="false"></span>
-        <textarea type="text" class="form-control" name="comment" id="comments" ng-model="dateNightNew.dateNight.comments"></textarea>
+        <span uib-rating ng-model="dateNightsEdit.dateNight.rating" max="10" read-only="false"></span>
+        <textarea type="text" class="form-control" name="comment" id="comments" ng-model="dateNightsEdit.dateNight.comments"></textarea>
       </div>
+      <button role="button" class="btn btn-primary" ui-sref="dateNightsShow({ id: dateNightsEdit.DateNight.id })">Cancel</button>
+  <button class="btn btn-success">Update</button>
     </form>
   </div>
 </div>
