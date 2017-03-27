@@ -30,6 +30,7 @@ function LoginCtrl($auth, $state, $rootScope) {
           const currentUserId = $auth.getPayload().userId;
           console.log('userId', currentUserId);
           $rootScope.$broadcast('loggedIn', res.user);
+          console.log('user', res.user);
           $state.go('usersShow', { id: currentUserId });
         });
     }
