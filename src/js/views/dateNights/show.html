@@ -13,6 +13,7 @@
         <span uib-rating ng-model="dateNightsShow.dateNight.rating" max="10" read-only="true"></span>
       </div>
         <a ui-sref="dateNightsEdit({ id: dateNightsShow.dateNight.id })" class="btn btn-primary">Edit</a>
+        <a ui-sref="cinemas({ id: dateNightsShow.dateNight.id })" class="btn btn-primary">Add Cinema</a>
         <button ng-click="dateNightsShow.open()" class="btn btn-danger">Delete</button>
       </div>
     </div>

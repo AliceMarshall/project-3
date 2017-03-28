@@ -2,19 +2,25 @@ angular
   .module('dateApp')
   .controller('CinemaCtrl', CinemaCtrl);
 
-CinemaCtrl.$inject = ['cinemas', 'User', '$stateParams'];
-function CinemaCtrl(cinemas, User, $stateParams) {
+CinemaCtrl.$inject = ['cinemas', 'User', 'DateNight', '$stateParams', '$auth'];
+function CinemaCtrl(cinemas, User, DateNight, $stateParams, $auth) {
   const vm = this;
   vm.all = [];
 
-  User.query($stateParams, (user) => {
+  const userId = $auth.getPayload().userId;
+
+  User.get({ id: userId }, (user) => {
     vm.user = user;
-    console.log('the user', vm.user[0].geometry);
-    getCinema();
+
+    DateNight.get($stateParams, (date) => {
+      console.log('the user', vm.user.geometry);
+      console.log('the date', date);
+      getCinema();
+    });
   });
 
   function getCinema() {
-    cinemas.getCinemas(vm.user[0].geometry.lat, vm.user[0].geometry.lng)
+    cinemas.getCinemas(vm.user.geometry.lat, vm.user.geometry.lng)
     .then((data)=>{
       // console.log('data', data);
       return vm.all = data;
