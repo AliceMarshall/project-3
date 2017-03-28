@@ -1,4 +1,4 @@
-<google-map cinemas="cinemas.all" ng-if="cinemas.all.length && main.currentUser.$resolved" user="main.currentUser"></google-map>
-<div>
+<google-map cinemas="cinemas.all" ng-if="cinemas.all.length && main.currentUser.$resolved" user="main.currentUser" date-person="cinemas.date"></google-map>
+<div style="width:100%">
   <input type="range" min="1000" max="10000" name="slider" id="slider" value="5000">
 </div>

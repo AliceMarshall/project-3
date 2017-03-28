@@ -13,14 +13,15 @@ function CinemaCtrl(cinemas, User, DateNight, $stateParams, $auth) {
     vm.user = user;
 
     DateNight.get($stateParams, (date) => {
-      console.log('the user', vm.user.geometry);
-      console.log('the date', date);
+      // console.log('the user', vm.user.geometry);
+      // console.log('the date', date);
+      vm.date = date;
       getCinema();
     });
   });
 
   function getCinema() {
-    cinemas.getCinemas(vm.user.geometry.lat, vm.user.geometry.lng)
+    cinemas.getCinemas(vm.user.geometry.lat, vm.user.geometry.lng, vm.date.geometry.lat, vm.date.geometry.lng)
     .then((data)=>{
       // console.log('data', data);
       return vm.all = data;

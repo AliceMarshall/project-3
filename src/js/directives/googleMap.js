@@ -12,16 +12,18 @@ function googleMap($window) {
     scope: {
       center: '=',
       cinemas: '=',
-      user: '='
+      user: '=',
+      datePerson: '='
     },
     link($scope, element) {
       console.log('user scope', $scope.user.geometry.lat);
+      console.log('date', $scope.datePerson.geometry.lat);
 
       let infoWindow = null;
       let radius = 5000;
       let marker = null;
 
-      const dateLatLng = { lat: 51.544235, lng: -0.051672 };
+      const dateLatLng = { lat: $scope.datePerson.geometry.lat, lng: $scope.datePerson.geometry.lng };
       const userLatLng = { lat: $scope.user.geometry.lat, lng: $scope.user.geometry.lng };
       const slider = document.getElementById('slider');
       const markers = [];

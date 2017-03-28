@@ -10,6 +10,16 @@
         <label for="when">When's the Date?</label>
         <input type="date" class="form-control" name="when" id="when" ng-model="dateNightsNew.dateNight.when">
       </div>
+      <div>
+        <label for="dateAddress">Your Date's Location</label>
+        <input type="text" class="form-control" autocomplete ng-model="dateNightsNew.dateNight.dateAddress" geometry="dateNightsNew.dateNight.geometry" required name="dateAddress" id="dateAddress">
+        <p>The user object: {{ dateNightsNew.dateNight }}</p>
+        <!-- <div ng-messages="dateNightsNew.registerForm.address.$error" ng-show="register.registerForm.$submitted || register.registerForm.address.$touched" role="alert">
+          <div ng-message="required">Address is required.</div>
+        </div> -->
+        <input type="hidden" ng-model="dateNight.lat" name="lat">
+        <input type="hidden" ng-model="dateNight.lng" name="lng">
+      </div>
 
       <div class="form-group">
         <label for="base64">Image</label>
