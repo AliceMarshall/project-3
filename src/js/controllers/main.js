@@ -6,6 +6,7 @@ MainCtrl.$inject = ['$rootScope', '$state', '$auth'];
 function MainCtrl($rootScope, $state, $auth) {
   const vm = this;
   vm.isNavCollapsed = true;
+  vm.menuIsOpen = false;
 
   vm.isAuthenticated = $auth.isAuthenticated;
 
@@ -22,6 +23,14 @@ function MainCtrl($rootScope, $state, $auth) {
     //checks if there's a token
     if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
   });
+
+  $rootScope.$on('$stateChangeStart', stateChange);
+  function stateChange(e, toState) {
+    vm.pageName = toState.name;
+    vm.menuIsOpen = false;
+  }
+
+
 
   $rootScope.$on('loggedIn', (e, user) => {
     vm.currentUser = user;

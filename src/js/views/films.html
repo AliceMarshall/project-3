@@ -1,5 +1,18 @@
-  <body ng-controller="FilmsCtrl as films"></body>
+
 
   <!-- //2 get requests, first gets the cinema, needs lat lngs from google maps
 
   second makes query for film times. need to grab the cinema id to pass into the second request. -->
+<body ng-controller="ShowtimesCtrl as showtimes">
+<h1>Listings</h1>
+
+   <ul>
+
+     <li ng-repeat="movie in showtimes.movies.movietimes">Movie:{{ movie.title }}
+       <ul>
+         <li ng-repeat="time in movie.times">{{time}}</li>
+       </ul>
+     </li>
+   </ul>
+
+</body>

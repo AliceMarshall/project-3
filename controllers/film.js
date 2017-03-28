@@ -8,7 +8,7 @@ function film(req, res) {
     url: `${baseUrl}`,
     // qs: {
     //   location: 'lat' /'lng' '51.544220,-0.146983',
-    // }, going to need to grab lat lng and append to the baseURl
+    // }, going to need to grab lat lng and append to the baseURl, this will be the location of the cinema that the user selects
     json: true
   })
   .then((response) => {
@@ -22,5 +22,3 @@ function film(req, res) {
 module.exports = {
   film
 };
-
-//tomorrow set up a request for the film times, pass in cinema id, which is grabbed from the first request.
