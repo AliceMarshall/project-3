@@ -2,8 +2,8 @@ angular
   .module('dateApp')
   .controller('MainCtrl', MainCtrl);
 
-MainCtrl.$inject = ['$rootScope', '$state', '$auth'];
-function MainCtrl($rootScope, $state, $auth) {
+MainCtrl.$inject = ['$rootScope', '$state', '$auth', 'User'];
+function MainCtrl($rootScope, $state, $auth, User) {
   const vm = this;
   vm.isNavCollapsed = true;
   vm.menuIsOpen = false;
@@ -21,7 +21,10 @@ function MainCtrl($rootScope, $state, $auth) {
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
     vm.isNavCollapsed = true;
     //checks if there's a token
-    if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
+    if($auth.getPayload()) {
+      vm.currentUserId = $auth.getPayload().userId;
+      vm.currentUser = User.get({ id: vm.currentUserId });
+    }
   });
 
   $rootScope.$on('$stateChangeStart', stateChange);
@@ -34,7 +37,7 @@ function MainCtrl($rootScope, $state, $auth) {
 
   $rootScope.$on('loggedIn', (e, user) => {
     vm.currentUser = user;
-    console.log(user);
+    console.log('user', user);
   });
 
   function logout() {
