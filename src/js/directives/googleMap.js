@@ -22,13 +22,13 @@ function googleMap($window) {
       let marker = null;
 
       const dateLatLng = { lat: 51.544235, lng: -0.051672 };
-      const userLatLng = { lat: 51.545685, lng: -0.164424 };
+      const userLatLng = { lat: $scope.user.geometry.lat, lng: $scope.user.geometry.lng };
       const slider = document.getElementById('slider');
       const markers = [];
 
       const map = new $window.google.maps.Map(element[0], {
         zoom: 12,
-        center: { lat: (((51.545685-51.544235)/2)+51.544235), lng: (((-0.164424+0.051672)/2)-0.051672) },
+        center: { lat: ((($scope.user.geometry.lat-51.544235)/2)+51.544235), lng: ((($scope.user.geometry.lng+0.051672)/2)-0.051672) },
         scrollwheel: false
       });
 
