@@ -12,6 +12,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'js/index.html',
       controller: 'MainCtrl as main'
     })
+
     .state('dateNightsIndex', {//index page for all dates created by all users
       url: '/date/index',
       templateUrl: 'js/views/dateNights/index.html',
@@ -39,6 +40,16 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/date/:id/addCinema',
       templateUrl: 'js/views/googleMap.html',
       controller: 'CinemaCtrl as cinemas'
+    })
+    .state('films', {//shows details of the date record
+      url: '/films',
+      templateUrl: 'js/views/films.html',
+      controller: 'ShowtimesCtrl as showtimes'
+    })
+    .state('restaurants', {//shows details of the date record
+      url: '/restaurants',
+      templateUrl: 'js/views/restaurantMap.html',
+      controller: 'RestaurantCtrl as restaurants'
     })
 
     .state('usersShow', {//index of all date created by that user.

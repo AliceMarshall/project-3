@@ -17,6 +17,7 @@ const dateNightSchema = new mongoose.Schema({
     name: { type: String },
     lat: { type: Number },
     lng: { type: Number },
+    id: { type: Number },
     film: { type: String}
   },
   restaurant: {

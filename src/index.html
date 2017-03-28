@@ -11,6 +11,15 @@
   <!-- endinject -->
 </head>
 <body ng-controller="MainCtrl as main">
+  <div class="menu" ng-click="main.menuIsOpen = !main.menuIsOpen" ng-class="{ 'open': main.menuIsOpen }">
+  <!-- toggles between class of open and not -->
+  <div class="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
   <nav class="navbar navbar-default" role="navigation">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" ng-click="main.isNavCollapsed = !main.isNavCollapsed">
