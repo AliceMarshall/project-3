@@ -2,3 +2,20 @@
 <div style="width:100%">
   <input type="range" min="1000" max="10000" name="slider" id="slider" value="5000">
 </div>
+
+<div ng-controller="DateNightsEditCtrl as dateNightsEdit">
+  <h1>Listings</h1>
+
+  <button ng-click="dateNightsEdit.update()">Add to my date</button>
+
+  <ul ng-controller="ShowtimesCtrl as showtimes">
+    <li ng-repeat="movie in showtimes.movies.movietimes">
+      <h2>{{ movie.title }}</h2>
+      <ul>
+        <li ng-repeat="time in movie.times">
+          <p ng-click="dateNightsEdit.addFilm(movie.title, time)" ng-class="{ 'selected': dateNightsEdit.dateNight.cinema.showTime === time && dateNightsEdit.dateNight.cinema.film === movie.title }">{{time}}</p>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

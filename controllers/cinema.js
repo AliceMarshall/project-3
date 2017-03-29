@@ -1,8 +1,6 @@
 const rp = require('request-promise');
 const Promise = require('bluebird');
 
-
-
 function cinemasIntersect(req, res, next) {
   const lat = ((req.query.userLat-51.544235)/2)+51.544235;
   const lng = ((req.query.userLng-(-0.051672))/2)+(-0.051672);
@@ -15,7 +13,7 @@ function cinemasIntersect(req, res, next) {
       radius: 5000,
       type: 'movie_theater',
       rankby: '',
-      key: 'AIzaSyAbTPwByJkxw2SS4XY7w8lV-eOM5UIcOEo'
+      key: 'AIzaSyA_z4M_neZtGnJ7dHTBguJ914pg3wBuIWs'
     }
   };
 

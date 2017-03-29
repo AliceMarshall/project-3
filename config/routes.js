@@ -3,6 +3,7 @@ const dateNight = require('../controllers/dateNight');
 const auth = require('../controllers/auth');
 const cinema = require('../controllers/cinema');
 const film = require('../controllers/film');
+const restaurant = require('../controllers/restaurant');
 const showtimes = require('../controllers/showtimes');
 const imageUpload = require('../lib/imageUpload');
 const users = require('../controllers/users');
