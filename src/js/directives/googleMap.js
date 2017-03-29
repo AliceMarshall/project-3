@@ -3,6 +3,7 @@ angular
   .directive('googleMap', googleMap);
 
 googleMap.$inject = ['$window'];
+/* global google */
 function googleMap($window) {
   const directive = {
     restrict: 'E',
@@ -11,71 +12,92 @@ function googleMap($window) {
     scope: {
       center: '=',
       cinemas: '=',
-      user: '='
+      user: '=',
+      datePerson: '='
     },
     link($scope, element) {
-      // console.log('scope', $scope.cinemas);
       console.log('user scope', $scope.user.geometry.lat);
+      console.log('date', $scope.datePerson.geometry.lat);
 
-      // const userLat = ;
       let infoWindow = null;
-      const searchAreaRadius = 5000;
-      const startLat = 51.545685;
-      const startLng = -0.164424;
-      const startLatLng = new google.maps.LatLng(startLat, startLng);
+      let radius = 5000;
       let marker = null;
+
+      const dateLatLng = { lat: $scope.datePerson.geometry.lat, lng: $scope.datePerson.geometry.lng };
+      const userLatLng = { lat: $scope.user.geometry.lat, lng: $scope.user.geometry.lng };
+      const slider = document.getElementById('slider');
+      const markers = [];
 
       const map = new $window.google.maps.Map(element[0], {
         zoom: 12,
-        center: { lat: (((51.545685-51.544235)/2)+51.544235), lng: (((-0.164424+0.051672)/2)-0.051672) },
+        center: { lat: ((($scope.user.geometry.lat-51.544235)/2)+51.544235), lng: ((($scope.user.geometry.lng+0.051672)/2)-0.051672) },
         scrollwheel: false
       });
 
-      const circle1 = new google.maps.Circle({
+      const circleUser = new google.maps.Circle({
         strokeColor: '#0000FF',
         strokeOpacity: 0.8,
         strokeWeight: 1.5,
         fillColor: '#0000FF',
         fillOpacity: 0.1,
         map: map,
-        center: startLatLng,
-        radius: searchAreaRadius
+        center: userLatLng,
+        radius: radius
       });
 
-      const circle2 = new google.maps.Circle({
+      const circleDate = new google.maps.Circle({
         strokeColor: '#0000FF',
         strokeOpacity: 0.8,
         strokeWeight: 1.5,
         fillColor: '#0000FF',
         fillOpacity: 0.1,
         map: map,
-        center: { lat: 51.544235, lng: -0.051672 },
-        radius: searchAreaRadius
+        center: dateLatLng,
+        radius: radius
       });
 
       $scope.cinemas.forEach(function(cinema){
-        // console.log(cinema.name);
         cinema.latitude = cinema.geometry.location.lat;
         cinema.longitude = cinema.geometry.location.lng;
-
         addMarker(cinema);
+        filterMarkers();
       });
 
-      google.maps.Circle.prototype.contains = function(latLng) {
-        return this.getBounds().contains(latLng) && google.maps.geometry.spherical.computeDistanceBetween(this.getCenter(), latLng) <= this.getRadius();
+      slider.onchange = function(){
+        radius = parseFloat(this.value);
+        circleUser.setRadius(radius);
+        circleDate.setRadius(radius);
+      //
+        filterMarkers();
       };
+
+      function filterMarkers() {
+        for(var i = 0; i < markers.length; i++){
+          if(markers[i].userDistance <= radius && markers[i].dateDistance <= radius){
+            markers[i].setMap(map);
+          } else{
+            markers[i].setMap(null);
+          }
+        }
+      }
+
+      function findDistance(p1, p2){
+        // console.log(google.maps.geometry.spherical.computeDistanceBetween(p1, p2));
+        return (google.maps.geometry.spherical.computeDistanceBetween(p1, p2)).toFixed(2);
+      }
 
       function addMarker(cinema) {
         const latLng = { lat: cinema.latitude, lng: cinema.longitude };
-        // console.log(latLng);
+
         marker = new google.maps.Marker({
           position: latLng,
           map,
-          animation: google.maps.Animation.DROP
+          animation: google.maps.Animation.DROP,
+          userDistance: findDistance(new google.maps.LatLng(userLatLng), new google.maps.LatLng(latLng)),
+          dateDistance: findDistance(new google.maps.LatLng(dateLatLng), new google.maps.LatLng(latLng))
           // icon: '/assets/restaurant.svg' // Adding a custom icon
         });
 
-        const markers = [];
         markers.push(marker);
 
         google.maps.event.addListener(marker, 'click', function () {
