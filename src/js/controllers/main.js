@@ -20,6 +20,7 @@ function MainCtrl($rootScope, $state, $auth, User) {
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
     vm.isNavCollapsed = true;
+
     //checks if there's a token
     if($auth.getPayload()) {
       vm.currentUserId = $auth.getPayload().userId;
@@ -36,6 +37,19 @@ function MainCtrl($rootScope, $state, $auth, User) {
   $rootScope.$on('loggedIn', (e, user) => {
     vm.currentUser = user;
   });
+
+  const protectedStates = [];//put the names of the states you want to protect in here later
+
+  function secureState(e, toState) {
+    if(!$auth.isAuthenticated() && protectedStates.includes(toState.name)) {
+      e.preventDefault();
+      $state.go('login');
+      vm.message = 'You must be logged in to go there!';
+    }
+    vm.pageName = toState.name;
+  }
+
+  $rootScope.$on('$stateChangeStart', secureState);
 
   function logout() {
     vm.currentUser = null;

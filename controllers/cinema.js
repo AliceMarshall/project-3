@@ -12,7 +12,7 @@ function cinemasIntersect(req, res, next) {
       radius: 5000,
       type: 'movie_theater',
       rankby: '',
-      key: 'AIzaSyApPesrKJXxe7d0SREgKkWgoqzFn90hRDs'
+      key: 'AIzaSyDuZ4RPHhXhWe1-XWvVRTqT3Ojg2ttWkmU'
     }
   };
 

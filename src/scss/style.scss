@@ -8,7 +8,11 @@ body {
   background-repeat: repeat;
   text-transform: uppercase;
   letter-spacing: 1px;
-  
+   &.home {
+     nav {
+       display:none;
+     }
+   }
 }
 
 .navbar-header {
@@ -40,6 +44,19 @@ img {
   max-width: 100%;
 }
 
+
 .selected {
   border: 1px solid dodgerblue;
+}
+
+#times {
+  list-style: none;
+    &:last-child {
+      float:right;
+    }
+}
+#movieNames {
+  list-style: none;
+  border-bottom: 1px solid grey;
+
 }

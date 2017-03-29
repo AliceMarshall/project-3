@@ -1,8 +1,28 @@
+<div class="row">
+<h1>Listings for cinema name {{}}</h1>
 
-  <!-- //2 get requests, first gets the cinema, needs lat lngs from google maps
+<button class="btn btn-success" ng-click="dateNightsEdit.update()">Add to my date</button>
 
-  second makes query for film times. need to grab the cinema id to pass into the second request. -->
+<ul ng-controller="ShowtimesCtrl as showtimes">
+  <li id= "movieNames" class ="col-sm-12" ng-repeat="movie in showtimes.movies.movietimes">
+    <h2>{{ movie.title }}</h2>
 
+<<<<<<< HEAD
+        <ul>
+
+          <li id="times" ng-repeat="time in movie.times" class="col-sm-4">
+
+             <p ng-click="dateNightsEdit.addFilm(movie.title, time)" ng-class="{ 'selected': dateNightsEdit.dateNight.cinema.showTime === time && dateNightsEdit.dateNight.cinema.film === movie.title }">{{time}}</p>
+
+          </li>
+
+        </ul>
+
+      </li>
+
+    </ul>
+  </div>
+=======
   <!-- make a form, attache to the edit controller, display the chosen film and time and submit the form. -->
   <!-- select film and time using radios, then submit the form. -->
   <h1>Listings</h1>
@@ -19,3 +39,4 @@
       </ul>
     </li>
   </ul>
+>>>>>>> development
