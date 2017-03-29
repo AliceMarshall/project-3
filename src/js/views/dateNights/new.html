@@ -1,22 +1,31 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <h2>Create Your Date</h2>
-    <form ng-submit="dateNightsNew.create()" novalidate>
+    <form name="newDate.newDateForm" ng-submit="dateNightsNew.create()" novalidate>
+
       <div class="form-group">
         <label for="name">Name of Date</label>
-        <input type="text" class="form-control" name="name" id="name" ng-model="dateNightsNew.dateNight.nameOfDate" required/>
-      </div>
-      <div class="form-group">
-        <label for="when">When's the Date?</label>
-        <input type="date" class="form-control" name="when" id="when" ng-model="dateNightsNew.dateNight.when">
-      </div>
+          <input type="text" class="form-control" name="name" id="name" ng-model="dateNightsNew.dateNight.nameOfDate" required/>
+
+          <div ng-messages="newDate.newDateForm.name.$error" ng-show="newDate.newDateForm.$submitted || newDate.newDateForm.name.$touched || newDate.newDateForm.name.$empty" role="alert">
+            <div ng-message="required">Username is required.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="when">When's the Date?</label>
+          <input type="date" class="form-control" name="when" id="when" ng-model="dateNightsNew.dateNight.when">
+        </div>
+
       <div>
         <label for="dateAddress">Your Date's Location</label>
         <input type="text" class="form-control" autocomplete ng-model="dateNightsNew.dateNight.dateAddress" geometry="dateNightsNew.dateNight.geometry" required name="dateAddress" id="dateAddress">
         <p>The user object: {{ dateNightsNew.dateNight }}</p>
-        <!-- <div ng-messages="dateNightsNew.registerForm.address.$error" ng-show="register.registerForm.$submitted || register.registerForm.address.$touched" role="alert">
-          <div ng-message="required">Address is required.</div>
-        </div> -->
+
+          <div ng-messages="newDate.newDateForm.dateAddress.$error" ng-show="newDate.newDateForm.$submitted || newDate.newDateForm.dateAddress.$touched" role="alert">
+            <p ng-message="required">Address is required.</p>
+          </div>
+
         <input type="hidden" ng-model="dateNight.lat" name="lat">
         <input type="hidden" ng-model="dateNight.lng" name="lng">
       </div>
@@ -27,7 +36,7 @@
       </div>
 
       <button role="button" class="btn btn-primary" ui-sref="dateNightsIndex">Cancel</button>
-      <button class="btn btn-success">Create</button>
+      <button class="btn btn-success" ng-disabled="newDate.newDateForm.$invalid">Create</button>
     </form>
   </div>
 </div>

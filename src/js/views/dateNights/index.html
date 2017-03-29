@@ -2,7 +2,7 @@
   <div ng-repeat="dateNight in dateNightsIndex.all" class="col-md-6">
     <img ng-src="{{ dateNight.imageSRC}}">
     <a ui-sref="dateNightsShow({ id: dateNight.id })"><h2>{{ dateNight.nameOfDate }}</h2></a>
-    <p>{{ dateNight.when }}</p>
+    <p>{{ dateNight.when | date: 'dd-mm-yyyy'  }}</p>
     <p> {{ dateNight.cinema.name }}</p>
     <p> {{ dateNight.restaurant.name }}</p>
     <div>
