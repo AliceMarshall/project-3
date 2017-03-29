@@ -67,7 +67,6 @@ function googleMap($window) {
         radius = parseFloat(this.value);
         circleUser.setRadius(radius);
         circleDate.setRadius(radius);
-      //
         filterMarkers();
       };
 
@@ -100,13 +99,17 @@ function googleMap($window) {
 
         markers.push(marker);
 
+        const infoWindowOptions = {
+          content: `<div>
+                      <p>${cinema.name}</p>
+                      <p>${cinema.vicinity}</p>
+                    </div>`
+        };
+
         google.maps.event.addListener(marker, 'click', function () {
           if(infoWindow) infoWindow.close();
-          var infoWindowOptions = {
-            content: `<div><p>${cinema.name}<br>${cinema.vicinity}</p></div>`
-          };
           infoWindow = new google.maps.InfoWindow(infoWindowOptions);
-          infoWindow.open(map, marker);
+          infoWindow.open(map, this);
         });
       }
     }
@@ -114,3 +117,20 @@ function googleMap($window) {
 
   return directive;
 }
+// for (var i = 0; i < 8; i++) {
+//     createMarker(i);
+// }
+
+// function createMarker(i) {
+//   var marker = new google.maps.Marker({
+//       map: map,
+//       position: new google.maps.LatLng(lat, lng),
+//       icon: '/static/images/iconsets/gmap/iconb' + (i+1) + '.png',
+//   });
+//   var infowindow = new google.maps.InfoWindow({
+//       content: 'test string'
+//   });
+//   google.maps.event.addListener(marker, 'click', function() {
+//       infowindow.open(map,marker);
+//   });
+// }
