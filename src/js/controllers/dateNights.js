@@ -70,16 +70,16 @@ function DateNightsEditCtrl(DateNight, $stateParams, $state, $scope) {
 
   vm.addFilm = addFilm;
 
-  function addCinema(lat, lng) {
-    console.log('lat and lng', lat, lng);
-    vm.dateNight.cinema = {};
+  // function addCinema(lat, lng) {
+  //   console.log('lat and lng', lat, lng);
+  //   vm.dateNight.cinema = {};
+  //
+  //   vm.dateNight.cinema.lat = lat;
+  //   vm.dateNight.cinema.lng = lng;
+  //   // $scope.apply;
+  // }
 
-    vm.dateNight.cinema.lat = lat;
-    vm.dateNight.cinema.lng = lng;
-    // $scope.apply;
-  }
-
-  $scope.addCinema = addCinema;
+  // $scope.addCinema = addCinema;
 
 }
 
