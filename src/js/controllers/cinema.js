@@ -26,13 +26,10 @@ function CinemaCtrl(cinemas, films, showtimes, User, DateNight, $stateParams, $a
   $scope.$watch(() => vm.selected, getCinemaListings);
 
   function getCinemaListings() {
-    console.log(vm.selected);
-    // console.log(vm.selected.latitude);
-    // console.log(vm.selected.longitude);
-    //
+
     films.filmsIndex(vm.selected.latitude, vm.selected.longitude)
       .then((filmapiInfo) => {
-        console.log('vm.info', filmapiInfo);
+        // console.log('vm.info', filmapiInfo);
         vm.info = filmapiInfo;
       })
       .then(() => {
@@ -43,28 +40,8 @@ function CinemaCtrl(cinemas, films, showtimes, User, DateNight, $stateParams, $a
         return vm.movies;
       });
 
-    // films.filmsIndex(vm.selected.latitude, vm.selected.longitude)
-    //   .then((filmapiInfo) => {
-    //     console.log('vm.info', filmapiInfo);
-    //     vm.info = filmapiInfo;
-    //   })
-    //   .then(() => {
-    //     showtimes.moviesIndex(vm.info.cinemaId)
-    //       .then((moviesListing) => {
-    //         vm.movies = moviesListing;
-    //   })
-      // console.log(vm.movies.movietimes[0].title);
-      // console.log(vm.movies.movietimes[0].times);
-    //   return vm.movies;
-    // });
-
     filmsIndex();
-    // moviesIndex();
 
-    // call cinema API
-    // vm.info = [];
-    // filmsIndex();
-    //
     function filmsIndex() {
       films.filmsIndex(vm.selected.latitude, vm.selected.longitude)
       .then((filmapiInfo) => {
@@ -82,14 +59,6 @@ function CinemaCtrl(cinemas, films, showtimes, User, DateNight, $stateParams, $a
       });
     }
 
-    // function moviesIndex() {
-    //
-    // }
-    // }
-    // get listings
-
-    // add them to `vm`
-    // call $scope.$apply
   }
 
   function getCinemas() {

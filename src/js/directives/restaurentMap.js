@@ -42,7 +42,8 @@ function restaurantMap($window) {
         radius: radius
       });
 
-      $scope.restaurants.forEach(function(restaurant){
+      const restaurants = $scope.restaurants.slice(0, 10);
+      restaurants.forEach(function(restaurant){
         // console.log('restaurant', restaurant);
         restaurant.latitude = restaurant.geometry.location.lat;
         restaurant.longitude = restaurant.geometry.location.lng;
@@ -65,7 +66,7 @@ function restaurantMap($window) {
         google.maps.event.addListener(marker, 'click', function () {
           if(infoWindow) infoWindow.close();
           var infoWindowOptions = {
-            content: `<div><p>${restaurant.name}<br>${restaurant.vicinity}</p></div>`
+            content: `<div><p>${restaurant.name}<br>${restaurant.vicinity}<br>${'&star;'.repeat(restaurant.rating)}</p></div>`
           };
           infoWindow = new google.maps.InfoWindow(infoWindowOptions);
           infoWindow.open(map, marker);
