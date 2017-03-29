@@ -33,11 +33,8 @@ function MainCtrl($rootScope, $state, $auth, User) {
     vm.menuIsOpen = false;
   }
 
-
-
   $rootScope.$on('loggedIn', (e, user) => {
     vm.currentUser = user;
-    console.log('user', user);
   });
 
   function logout() {

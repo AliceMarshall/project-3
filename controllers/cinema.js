@@ -1,9 +1,11 @@
 const rp = require('request-promise');
 const Promise = require('bluebird');
 
+
+
 function cinemasIntersect(req, res, next) {
-  const lat = ((req.query.userLat-req.query.dateLat)/2)+req.query.dateLat;
-  const lng = ((req.query.userLng-(req.query.dateLng))/2)+(req.query.dateLng);
+  const lat = ((req.query.userLat-51.544235)/2)+51.544235;
+  const lng = ((req.query.userLng-(-0.051672))/2)+(-0.051672);
   const baseUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json';
   const params = {
     method: 'GET',
@@ -13,7 +15,7 @@ function cinemasIntersect(req, res, next) {
       radius: 5000,
       type: 'movie_theater',
       rankby: '',
-      key: 'AIzaSyAemSTnCL0-3NFaqhikgPtwDcFB1uRM9Eg'
+      key: 'AIzaSyAbTPwByJkxw2SS4XY7w8lV-eOM5UIcOEo'
     }
   };
 

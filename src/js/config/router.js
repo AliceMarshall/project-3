@@ -37,17 +37,19 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     })
 
     .state('cinemas', {//shows details of the date record
-      url: '/date/:id/addCinema',
+      url: '/date/:id/addcinema',
       templateUrl: 'js/views/googleMap.html',
       controller: 'CinemaCtrl as cinemas'
     })
+
     .state('films', {//shows details of the date record
       url: '/date/:id/films',
       templateUrl: 'js/views/films.html',
       controller: 'DateNightsEditCtrl as dateNightsEdit'
     })
+
     .state('restaurants', {//shows details of the date record
-      url: '/restaurants',
+      url: '/date/:id/findrestaurant',
       templateUrl: 'js/views/restaurantMap.html',
       controller: 'RestaurantCtrl as restaurants'
     })

@@ -1,16 +1,16 @@
 const rp = require('request-promise');
 const Promise = require('bluebird');
 
-function restaurantsIntersect(req, res, next) {
+function restaurants(req, res, next) {
   const baseUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json';
   const params = {
     method: 'GET',
     url: baseUrl,
     json: true,
     qs: {
-      radius: 5000,
+      radius: 2000,
       types: 'restaurant',
-      key: 'AIzaSyCIloO-4lo_gugWpXq3wLuCdB9gResKvN0'
+      key: 'AIzaSyAuB54cgB1gVocRFYg7ANG8JTuQXeFyN2s'
     }
   };
 
@@ -22,7 +22,7 @@ function restaurantsIntersect(req, res, next) {
       function makeRequest() {
         rp(params)
           .then((response) => {
-            console.log(response);
+            // console.log(response);
             if(response.status === 'INVALID_REQUEST') return makeRequest();
             if(response.status !== 'OK') reject(new Error(response.status));
 
@@ -42,27 +42,17 @@ function restaurantsIntersect(req, res, next) {
   }
 
   Promise.props({
-    locationA: getAllResults(51.544237, -0.051679),
-    locationB: getAllResults(req.query.userLat, req.query.userLng)
+    location: getAllResults(51.544237, -0.051679)
   })
   .then((response) => {
-    console.log(response);
-    const resultSet = response.locationA.concat(response.locationB);
-    const ids = [];
-    const filteredResults = resultSet.filter((obj) => {
-      if(ids.includes(obj.place_id)) {
-        return true;
-      } else {
-        ids.push(obj.place_id);
-        return false;
-      }
+    // console.log(response);
+    const resultSet = response.location;
 
-    });
-    res.json(filteredResults);
+    res.json(resultSet);
   })
   .catch(next);
 }
 
 module.exports = {
-  restaurantsIntersect
+  restaurants
 };
