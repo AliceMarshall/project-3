@@ -1,8 +1,6 @@
 const rp = require('request-promise');
 const Promise = require('bluebird');
 
-
-
 function cinemasIntersect(req, res, next) {
   const lat = ((req.query.userLat-51.544235)/2)+51.544235;
   const lng = ((req.query.userLng-(-0.051672))/2)+(-0.051672);

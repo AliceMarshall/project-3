@@ -63,7 +63,7 @@ function DateNightsEditCtrl(DateNight, $stateParams, $state) {
   vm.update = dateNightsUpdate;
 
   function addFilm(film, showTime) {
-    vm.dateNight.cinema={};
+    vm.dateNight.cinema = {};
     vm.dateNight.cinema.film = film;
     vm.dateNight.cinema.showTime = showTime;
   }
