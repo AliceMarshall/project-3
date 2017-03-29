@@ -43,9 +43,9 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     })
 
     .state('films', {//shows details of the date record
-      url: '/films',
+      url: '/date/:id/films',
       templateUrl: 'js/views/films.html',
-      controller: 'ShowtimesCtrl as showtimes'
+      controller: 'DateNightsEditCtrl as dateNightsEdit'
     })
 
     .state('restaurants', {//shows details of the date record
