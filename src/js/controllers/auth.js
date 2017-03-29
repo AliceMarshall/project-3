@@ -1,7 +1,7 @@
 angular
-  .module('dateApp')
-  .controller('RegisterCtrl', RegisterCtrl)
-  .controller('LoginCtrl', LoginCtrl);
+ .module('dateApp')
+ .controller('RegisterCtrl', RegisterCtrl)
+ .controller('LoginCtrl', LoginCtrl);
 
 RegisterCtrl.$inject = ['$auth', '$state'];
 function RegisterCtrl($auth, $state) {
@@ -23,15 +23,24 @@ function LoginCtrl($auth, $state, $rootScope) {
   const vm = this;
   vm.credentials = {};
 
+  function authenticate(service) {
+    $auth.authenticate(service)
+    .then(() => {
+      $state.go('usersShow', { id: $auth.getPayload().userId });
+    });
+  }
+
+  vm.authenticate = authenticate;
+
   function submit() {
     if (vm.loginForm.$valid) {
       $auth.login(vm.credentials)
         .then((res) => {
-          // console.log('response', res);
+         // console.log('response', res);
           const currentUserId = $auth.getPayload().userId;
-          // console.log('userId', currentUserId);
+         // console.log('userId', currentUserId);
           $rootScope.$broadcast('loggedIn', res.data.user);
-          // console.log('user', res.data.user);
+         // console.log('user', res.data.user);
           $state.go('usersShow', { id: currentUserId });
         });
     }

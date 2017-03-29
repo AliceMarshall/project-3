@@ -3,9 +3,11 @@ const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
-  email: { type: String, required: true},
-  password: {type: String, required: true},
+  email: { type: String },
+  profileImage: { type: String },
+  password: {type: String},
   address: { type: String },
+  facebookId: { type: String },
   geometry: {
     lat: { type: Number },
     lng: { type: Number }
@@ -19,7 +21,10 @@ userSchema
   });
 
 userSchema.pre('validate', function checkPassword(next) {
-  if(this.isModified('password') && this._passwordConfirmation !== this.password) {
+  if(!this.password && !this.facebookId) {
+    this.invalidate('password', 'required');
+  }
+  if(this.isModified('password') && this._passwordConfirmation !== this.password){
     this.invalidate('passwordConfirmation', 'does not match');
   }
   next();
@@ -35,17 +40,5 @@ userSchema.pre('save', function hashPassword(next) {
 userSchema.methods.validatePassword = function validatePassword(password) {
   return bcrypt.compareSync(password, this.password);
 };
-
-module.exports = mongoose.model('User', userSchema);
-
-
-
-
-
-
-
-
-
-
 
 module.exports = mongoose.model('User', userSchema);
