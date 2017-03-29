@@ -4,9 +4,9 @@ angular
 
 Showtimes.$inject = ['$http'];
 function Showtimes($http) {
-  this.moviesIndex = function moviesIndex() {
+  this.moviesIndex = function moviesIndex(cinemaId) {
     return $http
-            .get('/api/showtimes')
+            .get('/api/showtimes', { params: { cinemaId }})
             .then((response) => {
               const moviesListing = {};
               moviesListing.movietimes = response.data.listings;

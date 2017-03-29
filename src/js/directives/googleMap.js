@@ -13,24 +13,28 @@ function googleMap($window) {
       center: '=',
       cinemas: '=',
       user: '=',
-      datePerson: '='
+      datePerson: '=',
+      radius: '=',
+      selected: '='
     },
     link($scope, element) {
       console.log('user scope', $scope.user.geometry.lat);
       console.log('date', $scope.datePerson.geometry.lat);
 
       let infoWindow = null;
-      let radius = 5000;
+      let radius = 4000;
       let marker = null;
 
       const dateLatLng = { lat: $scope.datePerson.geometry.lat, lng: $scope.datePerson.geometry.lng };
       const userLatLng = { lat: $scope.user.geometry.lat, lng: $scope.user.geometry.lng };
-      const slider = document.getElementById('slider');
+      const bounds = new $window.google.maps.LatLngBounds(dateLatLng, userLatLng);
       const markers = [];
+
+      $scope.center = bounds.getCenter().toJSON();
 
       const map = new $window.google.maps.Map(element[0], {
         zoom: 12,
-        center: { lat: ((($scope.user.geometry.lat-51.544235)/2)+51.544235), lng: ((($scope.user.geometry.lng+0.051672)/2)-0.051672) },
+        center: $scope.center,
         scrollwheel: false
       });
 
@@ -56,20 +60,25 @@ function googleMap($window) {
         radius: radius
       });
 
-      $scope.cinemas.forEach(function(cinema){
-        cinema.latitude = cinema.geometry.location.lat;
-        cinema.longitude = cinema.geometry.location.lng;
-        addMarker(cinema);
-        filterMarkers();
-      });
+      function addCinemas() {
+        $scope.cinemas.forEach((cinema) => {
+          cinema.latitude = cinema.geometry.location.lat;
+          cinema.longitude = cinema.geometry.location.lng;
+          addMarker(cinema);
+          filterMarkers();
+        });
+      }
 
-      slider.onchange = function(){
-        radius = parseFloat(this.value);
+      $scope.$watch('cinemas', addCinemas);
+
+      $scope.$watch('radius', updateCircle);
+
+      function updateCircle(){
+        radius = parseFloat($scope.radius);
         circleUser.setRadius(radius);
         circleDate.setRadius(radius);
-      //
         filterMarkers();
-      };
+      }
 
       function filterMarkers() {
         for(var i = 0; i < markers.length; i++){
@@ -100,13 +109,31 @@ function googleMap($window) {
 
         markers.push(marker);
 
-        google.maps.event.addListener(marker, 'click', function () {
+        const htmlElement = `<div id="infoWindow">
+                              <p>${cinema.name}</p>
+                              <p>${cinema.vicinity}</p>
+                              <a ng-click="addCinema(${cinema.geometry.location.lat}, ${cinema.geometry.location.lng} )">Choose this cinema for your date</a>
+                            </div>`;
+        // const compiled = $compile(htmlElement)($scope);
+
+        // const infoWindowOptions = {
+        //   content: compiled[0]
+        // };
+
+        google.maps.event.addListener(marker, 'click', function() {
           if(infoWindow) infoWindow.close();
-          var infoWindowOptions = {
-            content: `<div><p>${cinema.name}<br>${cinema.vicinity}</p></div>`
-          };
-          infoWindow = new google.maps.InfoWindow(infoWindowOptions);
-          infoWindow.open(map, marker);
+          infoWindow = new google.maps.InfoWindow({
+            content: htmlElement
+          });
+
+          google.maps.event.addListener(infoWindow, 'domready', () => {
+            document.getElementById('infoWindow').onclick = function handleWindowClick() {
+              $scope.selected = cinema;
+              $scope.$apply();
+            };
+
+          });
+          infoWindow.open(map, this);
         });
       }
     }
