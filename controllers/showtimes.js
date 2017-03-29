@@ -1,11 +1,11 @@
 const rp = require('request-promise');
 
 function showtimes(req, res) {
-  const baseUrl = 'http://api.cinelist.co.uk/get/times/cinema/7530?';
+  const baseUrl = 'http://api.cinelist.co.uk/get/times/cinema';
 
   rp({
     method: 'GET',
-    url: `${baseUrl}`,//also get cinema id from the film get request.
+    url: `${baseUrl}/${req.query.cinemaId}`,//also get cinema id from the film get request.
     qs: {
       //?day=<INT> pass in the date of the date.
     },

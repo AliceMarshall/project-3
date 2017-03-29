@@ -4,9 +4,9 @@ angular
 
 Cinemas.$inject = ['$http'];
 function Cinemas($http) {
-  this.getCinemas = function getCinemas(userLat, userLng, dateLat, dateLng) {
+  this.getCinemas = function getCinemas(lat, lng) {
     return $http
-            .get('/api/cinemas', { params: { userLat, userLng, dateLat, dateLng } })
+            .get('/api/cinemas', { params: { lat, lng } })
             .then((response) => {
               console.log(response.data);
               return response.data;

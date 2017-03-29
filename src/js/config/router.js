@@ -42,11 +42,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'CinemaCtrl as cinemas'
     })
 
-    .state('films', {//shows details of the date record
-      url: '/date/:id/films',
-      templateUrl: 'js/views/films.html',
-      controller: 'DateNightsEditCtrl as dateNightsEdit'
-    })
+    // .state('films', {//shows details of the date record
+    //   url: '/date/:id/films',
+    //   templateUrl: 'js/views/films.html',
+    //   controller: 'DateNightsEditCtrl as dateNightsEdit'
+    // })
 
     .state('restaurants', {//shows details of the date record
       url: '/date/:id/findrestaurant',
