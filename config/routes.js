@@ -25,6 +25,8 @@ router.get('/films', film.film);
 
 router.get('/showtimes', showtimes.showtimes);
 
+router.get('/restaurants', restaurant.restaurants);
+
 router.get('/users', users.index);
 
 router.route('/users/:id')
