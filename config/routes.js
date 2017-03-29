@@ -4,7 +4,6 @@ const auth = require('../controllers/auth');
 const cinema = require('../controllers/cinema');
 const film = require('../controllers/film');
 const showtimes = require('../controllers/showtimes');
-const restaurant = require('../controllers/restaurant');
 const imageUpload = require('../lib/imageUpload');
 const users = require('../controllers/users');
 // const secureRoute = require('../lib/secureRoute');

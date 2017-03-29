@@ -61,6 +61,14 @@ function DateNightsEditCtrl(DateNight, $stateParams, $state) {
   }
 
   vm.update = dateNightsUpdate;
+
+  function addFilm(film, showTime) {
+    vm.dateNight.cinema.film = film;
+    vm.dateNight.cinema.showTime = showTime;
+  }
+
+  vm.addFilm = addFilm;
+  
 }
 
 DateNightsDeleteCtrl.inject = ['$uibModalInstance', 'currentDateNight', '$state'];//instance of the modal thats just been opened. The currentBird is the item from resolve

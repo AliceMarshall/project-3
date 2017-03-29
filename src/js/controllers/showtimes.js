@@ -11,8 +11,8 @@ function ShowtimesCtrl(showtimes) {
     showtimes.moviesIndex()
     .then((moviesListing) => {
       vm.movies = moviesListing;
-      console.log(vm.movies.movietimes[0].title);
-      console.log(vm.movies.movietimes[0].times);
+      // console.log(vm.movies.movietimes[0].title);
+      // console.log(vm.movies.movietimes[0].times);
       return vm.movies;
 
     });

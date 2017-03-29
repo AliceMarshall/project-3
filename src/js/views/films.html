@@ -1,18 +1,27 @@
 
-
   <!-- //2 get requests, first gets the cinema, needs lat lngs from google maps
 
   second makes query for film times. need to grab the cinema id to pass into the second request. -->
-<body ng-controller="ShowtimesCtrl as showtimes">
+
+  <!-- make a form, attache to the edit controller, display the chosen film and time and submit the form. -->
+  <!-- select film and time using radios, then submit the form. -->
 <h1>Listings</h1>
 
-   <ul>
+<button ng-click="dateNightsEdit.update()">Add to my date</button>
 
-     <li ng-repeat="movie in showtimes.movies.movietimes">Movie:{{ movie.title }}
-       <ul>
-         <li ng-repeat="time in movie.times">{{time}}</li>
-       </ul>
-     </li>
-   </ul>
+  <ul ng-controller="ShowtimesCtrl as showtimes">
+    <li ng-repeat="movie in showtimes.movies.movietimes">
+      <h2>{{ movie.title }}</h2>
+      <label for="select this film">Select this Film?</label>
+      <input type="checkbox" id="filmselections" name="filmselections" ng-model="movie.title">
+      <!-- only select one option at a time? also why does it display true and false when the check box is checked?! -->
+      <ul>
+        <li ng-repeat="time in movie.times">
+          <p ng-click="dateNightsEdit.addFilm(movie.title, time)" ng-class="{ 'selected': dateNightsEdit.dateNight.cinema.showTime === time && dateNightsEdit.dateNight.cinema.film === movie.title }">{{time}}</p>
+        </li>
+         <!-- <select ng-show="addFilm.filmselections.notempty" ng-model="movie.times" ng-options="time for movie in showtimes.movies.movietimes"></select> -->
+      </ul>
+    <li>
+  </ul>
 
 </body>
