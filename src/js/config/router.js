@@ -9,8 +9,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('home', {//homepage - with logo
       url: '/',
-      templateUrl: 'js/index.html',
-      controller: 'MainCtrl as main'
+      templateUrl: 'js/views/home.html'
     })
 
     .state('dateNightsIndex', {//index page for all dates created by all users

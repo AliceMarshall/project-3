@@ -1,4 +1,4 @@
-<div ng-controller="DateNightsEditCtrl as dateNightsEdit">
+<div ng-controller="DateNightsEditCtrl as dateNightsEdit" class="container">
   <google-map cinemas="cinemas.all" ng-if="main.currentUser.$resolved && cinemas.date" user="main.currentUser" date-person="cinemas.date" center="cinemas.center" radius="cinemas.radius" selected="cinemas.selected"></google-map>
   <div style="width:100%">
    <input type="range" min="1000" max="10000" value="5000" ng-model="cinemas.radius">

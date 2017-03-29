@@ -1,12 +1,24 @@
 angular
   .module('dateApp')
-  .controller('MainCtrl', MainCtrl);
+  .controller('MainCtrl', MainCtrl)
+  .controller('HomeCtrl', HomeCtrl);
+
+HomeCtrl.$inject = ['$rootScope'];
+function HomeCtrl($rootScope){
+  const vm = this;
+  vm.menuIsOpen = false;
+
+  function stateChange(e, toState) {
+    vm.pageName = toState.name;
+    vm.menuIsOpen = false;
+  }
+
+  $rootScope.$on('$stateChangeStart', stateChange);
+}
 
 MainCtrl.$inject = ['$rootScope', '$state', '$auth', 'User'];
 function MainCtrl($rootScope, $state, $auth, User) {
   const vm = this;
-  vm.isNavCollapsed = true;
-  vm.menuIsOpen = false;
 
   vm.isAuthenticated = $auth.isAuthenticated;
 
@@ -27,12 +39,6 @@ function MainCtrl($rootScope, $state, $auth, User) {
       vm.currentUser = User.get({ id: vm.currentUserId });
     }
   });
-
-  $rootScope.$on('$stateChangeStart', stateChange);
-  function stateChange(e, toState) {
-    vm.pageName = toState.name;
-    vm.menuIsOpen = false;
-  }
 
   $rootScope.$on('loggedIn', (e, user) => {
     vm.currentUser = user;
