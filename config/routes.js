@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const dateNight = require('../controllers/dateNight');
 const auth = require('../controllers/auth');
+const oauth = require('../controllers/oauth');
 const cinema = require('../controllers/cinema');
 const film = require('../controllers/film');
 const restaurant = require('../controllers/restaurant');
@@ -38,6 +39,9 @@ router.route('/register')
 
 router.route('/login')
   .post(auth.login);
+
+router.route('/oauth/facebook')
+  .post(oauth.facebook);
 
 router.all('/*', (req, res) => res.notFound());
 

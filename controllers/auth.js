@@ -1,22 +1,37 @@
 const User = require('../models/user');
-const jwt = require( 'jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const { secret } = require('../config/environment');
+const mail = require('../lib/mail');
+// const oauth = require('../config/oauth');
 
-function register(req, res, next) {
+// function login(req, res) {
+//   res.render('/login', { oauth });
+// }
+
+function register(req, res, next){
   User
     .create(req.body)
-    .then(() => res.json({ message: 'registration successful'}))
+    .then((user) => {
+      mail.send(user.email, 'Thanks for registering!', `Hey ${user.username}! Thanks for registering with DateNight!`, (err) => {
+        if(err) next(err);
+        res.json({ message: 'Registration successful'});
+      });
+    })
     .catch(next);
-
 }
 
-function login(req, res, next) {
+function login(req, res, next){
+  // res.render('/login', { oauth });
   User
-    .findOne({ email: req.body.email})
+    .findOne({ email: req.body.email })
     .then((user) => {
       if(!user || !user.validatePassword(req.body.password)) return res.unauthorized();
+
+      //Generate a JWT and send it to the client//
+      //sign method essentially means generate a token
       const token = jwt.sign({ userId: user.id }, secret, { expiresIn: '1hr' });
-      res.json({ token, message: `Welcome back ${user.username}`, user });
+      //Personalised greeting message
+      res.json({ token, message: `Welcome back ${user.username}` });
     })
     .catch(next);
 }
@@ -24,4 +39,4 @@ function login(req, res, next) {
 module.exports = {
   register,
   login
-};
+}; 
