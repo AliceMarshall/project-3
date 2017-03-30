@@ -1,24 +1,30 @@
 <div ng-controller="DateNightsEditCtrl as dateNightsEdit" class="container">
-  <google-map cinemas="cinemas.all" ng-if="main.currentUser.$resolved && cinemas.date" user="main.currentUser" date-person="cinemas.date" center="cinemas.center" radius="cinemas.radius" selected="cinemas.selected" lat="dateNightsEdit.dateNight.cinema.lat" lng="dateNightsEdit.dateNight.cinema.lng" name="dateNightsEdit.dateNight.cinema.name"></google-map>
-  <div style="width:100%">
-   <input type="range" min="1000" max="10000" value="5000" ng-model="cinemas.radius">
+  <div class="left">
+    <h2>Select a Cinema</h2>
+    <google-map cinemas="cinemas.all" ng-if="main.currentUser.$resolved && cinemas.date" user="main.currentUser" date-person="cinemas.date" center="cinemas.center" radius="cinemas.radius" selected="cinemas.selected" lat="dateNightsEdit.dateNight.cinema.lat" lng="dateNightsEdit.dateNight.cinema.lng" name="dateNightsEdit.dateNight.cinema.name"></google-map>
+    <div class="slider">
+      <h4>Change Radius</h4>
+      <input type="range" min="1000" max="10000" value="5000" ng-model="cinemas.radius">
+    </div>
+  </div>
+  <div class="right">
+    <div ng-show="cinemas.info.cinemaId">
+      <h1>Listings for: {{cinemas.selected.name}}</h1>
+
+      <button class="btn btn-success" ng-click="dateNightsEdit.update()">Add to my date</button>
+      <ul class="scrollable">
+        <li id= "movieNames" ng-repeat="movie in cinemas.movies.movietimes">
+          <h2>{{ movie.title }}</h2>
+          <ul>
+            <li id="times" ng-repeat="time in movie.times">
+             <p ng-click="dateNightsEdit.addFilm(movie.title, time)" ng-class="{ 'selected': dateNightsEdit.dateNight.cinema.showTime === time && dateNightsEdit.dateNight.cinema.film === movie.title }">{{time}}</p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 
-  <div ng-show="cinemas.info.cinemaId" class="row">
-    <h1>Listings for: {{cinemas.selected.name}}</h1>
-    <h1>{{dateNightsEdit.dateNight}}</h1>
 
-    <button class="btn btn-success" ng-click="dateNightsEdit.update()">Add to my date</button>
 
-    <ul>
-      <li id= "movieNames" class ="col-sm-12" ng-repeat="movie in cinemas.movies.movietimes">
-        <h2>{{ movie.title }}</h2>
-        <ul>
-          <li id="times" ng-repeat="time in movie.times" class="col-sm-4">
-           <p ng-click="dateNightsEdit.addFilm(movie.title, time)" ng-class="{ 'selected': dateNightsEdit.dateNight.cinema.showTime === time && dateNightsEdit.dateNight.cinema.film === movie.title }">{{time}}</p>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </div>
 </div>

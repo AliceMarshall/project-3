@@ -113,9 +113,9 @@ function googleMap($window) {
         markers.push(marker);
 
         const htmlElement = `<div id="infoWindow">
-                              <p>${cinema.name}</p>
-                              <p>${cinema.vicinity}</p>
-                              <a ng-click="addCinema(${cinema.geometry.location.lat}, ${cinema.geometry.location.lng} )">Choose this cinema for your date</a>
+                              <h3>${cinema.name}</h3>
+                              <h5>${cinema.vicinity}</h5>
+                              <a>Choose this cinema</a>
                             </div>`;
 
         google.maps.event.addListener(marker, 'click', function() {
