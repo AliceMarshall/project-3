@@ -42,7 +42,7 @@ function restaurants(req, res, next) {
   }
 
   Promise.props({
-    location: getAllResults(51.544237, -0.051679)
+    location: getAllResults(req.query.lat, req.query.lng)
   })
   .then((response) => {
     // console.log(response);

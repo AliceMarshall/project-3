@@ -15,7 +15,10 @@ function googleMap($window) {
       user: '=',
       datePerson: '=',
       radius: '=',
-      selected: '='
+      selected: '=',
+      lat: '=',
+      lng: '=',
+      name: '='
     },
     link($scope, element) {
       console.log('user scope', $scope.user.geometry.lat);
@@ -129,6 +132,9 @@ function googleMap($window) {
           google.maps.event.addListener(infoWindow, 'domready', () => {
             document.getElementById('infoWindow').onclick = function handleWindowClick() {
               $scope.selected = cinema;
+              $scope.lat = cinema.latitude;
+              $scope.lng = cinema.longitude;
+              $scope.name = cinema.name;
               $scope.$apply();
             };
 

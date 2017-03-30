@@ -2,20 +2,22 @@ angular
   .module('dateApp')
   .controller('RestaurantCtrl', RestaurantCtrl);
 
-RestaurantCtrl.$inject = ['restaurants', 'User', '$auth'];
-function RestaurantCtrl(restaurants, User, $auth) {
+RestaurantCtrl.$inject = ['restaurants', 'DateNight', '$stateParams', '$scope'];
+function RestaurantCtrl(restaurants, DateNight, $stateParams, $scope) {
   const vm = this;
   vm.all = [];
+  vm.date = {};
 
-  const userId = $auth.getPayload().userId;
+  DateNight.get($stateParams, (date) => {
 
-  User.get({ id: userId }, (user) => {
-    vm.user = user;
-    getRestaurant();
+    vm.date = date;
+    console.log('date', vm.date);
   });
 
+  $scope.$watch(() => vm.date, getRestaurant);
+
   function getRestaurant() {
-    restaurants.getRestaurants(vm.user.geometry.lat, vm.user.geometry.lng)
+    restaurants.getRestaurants(vm.date.cinema.lat, vm.date.cinema.lng)
     .then((data)=>{
       console.log('data', data);
       return vm.all = data;
