@@ -518,24 +518,23 @@ h2 {
     }
 }
 
-.loginbutton {
-  background: none;
-  color: $blue;
-  border: none;
-  padding: 5px 20px;
-  margin-top: 10%;
-  font-size: 25px;
-  font-weight: bold;
-    &:focus{
-    outline: none !important;
-    &:hover {
-      background: none;
-      color:$main-color;
-      animation: pulse 1s;
+  .loginbutton {
+    background: none;
+    color: $blue;
+    border: none;
+    padding: 5px 20px;
+    margin-top: 10%;
+    margin-left: 30%;
+    font-size: 25px;
+    font-weight: bold;
+      &:hover {
+        background: none;
+        color:$main-color;
+        animation: pulse 1s;
+      }
     }
   }
-}
-}
+
 
 
 
