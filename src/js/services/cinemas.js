@@ -8,7 +8,6 @@ function Cinemas($http) {
     return $http
             .get('/api/cinemas', { params: { lat, lng } })
             .then((response) => {
-              console.log(response.data);
               return response.data;
             });
   };

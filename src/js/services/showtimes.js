@@ -10,7 +10,6 @@ function Showtimes($http) {
             .then((response) => {
               const moviesListing = {};
               moviesListing.movietimes = response.data.listings;
-              // console.log(moviesListing.movietimes);
               return moviesListing;
             });
 

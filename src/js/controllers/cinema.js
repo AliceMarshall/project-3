@@ -45,7 +45,6 @@ function CinemaCtrl(cinemas, films, showtimes, User, DateNight, $stateParams, $a
     function filmsIndex() {
       films.filmsIndex(vm.selected.latitude, vm.selected.longitude)
       .then((filmapiInfo) => {
-        console.log('vm.info', filmapiInfo);
         vm.info = filmapiInfo;
       })
       .then(() => {
@@ -65,7 +64,6 @@ function CinemaCtrl(cinemas, films, showtimes, User, DateNight, $stateParams, $a
     if(vm.center) {
       cinemas.getCinemas(vm.center.lat, vm.center.lng)
       .then((data)=> {
-        console.log('data', data);
         return vm.all = data;
       });
     }
