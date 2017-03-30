@@ -1,8 +1,11 @@
+<div class="all-dates">
 <div class="container">
+  <div class="left"></div>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <h2 class="text-center">Login</h2>
        <form name="login.loginForm" ng-submit="login.submit()" novalidate>
+         <div class="loginForm">
          <div class="form-group">
            <label for="email">Email</label>
            <input type="text" class="form-control" required name="email" id="email" ng-model="login.credentials.email" ng-pattern="/@/">
@@ -18,9 +21,13 @@
              <div ng-message="required">Your password is required.</div>
            </div>
          </div>
+         <div class="logBtns">
          <button class="btn btn-success" ng-disabled="login.loginForm.$invalid">Login</button>
-         <button type="button" ng-click="login.authenticate('facebook')">Login with Facebook</button>
+         <button type="button" class="btn btn-primary fa fa-facebook" ng-click="login.authenticate('facebook')">  Login with Facebook</button>
+          </div>
+          </div>
        </form>
      </div>
    </div>
+</div>
 </div>
