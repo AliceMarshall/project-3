@@ -250,8 +250,25 @@ img {
       margin-top: 10%;
       font-size: 20px;
       font-weight: bold;
+        &:hover {
+          color:$main-color;
+          animation: pulse 1s;
+      }
     }
     // background-color: blue;
   }
+//come back to styling the image upload button
 
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+
+  }
 }
