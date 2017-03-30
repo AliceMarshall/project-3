@@ -28,7 +28,7 @@ User.create([{
   .create([{
     nameOfDate: 'David',
     when: 2017,
-    image: '',
+    image: 'http://vignette4.wikia.nocookie.net/parody/images/d/d9/Elmo.jpeg/revision/latest?cb=20160324213958',
     rating: 10,
     comments: '',
     complete: true,

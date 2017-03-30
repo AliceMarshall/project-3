@@ -3,7 +3,9 @@ $red: red;
 $main-color: #FF999C;
 $white: white;
 $blue: #8AE9FF;
+$transparent-blue: rgba(138, 233, 255, 0.7);
 
+// ------------------------Global Styles-------------------------------------------
 .centered-styles {
   position: absolute;
   top: 50%;
@@ -122,7 +124,7 @@ nav {
     }
   }
 }
-
+// -----------------------------------------Home Page----------------------------
 .home-page {
   overflow-y: hidden;
   height: 100vh;
@@ -139,7 +141,7 @@ nav {
     letter-spacing: -3px;
   }
 }
-
+// -------------------------------------------Index Page------------------------
 .all-dates {
   width: 100%;
   height: 100%;
@@ -149,7 +151,7 @@ nav {
     left: 0;
     height: 100vh;
     position: absolute;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url('/images/popcorn-movie-party-entertainment.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url('/images/popcorn-movie-party-entertainment.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -207,13 +209,9 @@ body {
   }
 }
 
-
-
-
 img {
   max-width: 100%;
 }
-
 
 .selected {
   border: 1px solid dodgerblue;
@@ -227,3 +225,116 @@ img {
 .loginForm {
   margin-top: 50%;
 }
+
+
+.datesIndex {
+  width: 100%;
+  height: 100%;
+  .left {
+    width: 40%;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    position: absolute;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url('/images/flower.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .row {
+    width: 60%;
+    margin: 5% -5% 5% 0;
+    right: 0;
+    float: right;
+    h2 {
+      font-weight: bold;
+    }
+  }
+}
+
+// -------------------------------------------New Date--------------------
+#newDate {
+  width: 100%;
+  height: 100%;
+  .left {
+    width: 40%;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    position: absolute;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url('/images/setTable.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .row {
+    width: 60%;
+    margin: 5% -5% 5% 0;
+    right: 0;
+    float: right;
+    h2 {
+      font-weight: bold;
+    }
+    // background-color: blue;
+  }
+}
+
+.datePic {
+  max-width: 250px;
+  max-height: 250px;
+  border-radius: 50%;
+}
+
+.date {
+  float: left;
+}
+
+.datesContent {
+  margin-left: -45%;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  color: #88dcef;
+}
+
+a {
+      color: $blue;
+      margin-left: 25%;
+    }
+      #newForm {
+        // border: 1px solid grey;
+        border-radius: 5%;
+        padding: 30px;
+        background-color: $transparent-blue;
+        color: white;
+      }
+    button {
+      background: none;
+      color: $blue;
+      border: none;
+      padding: 5px 20px;
+      margin-left: 35%;
+      margin-top: 10%;
+      font-size: 20px;
+      font-weight: bold;
+        &:hover {
+          color:$main-color;
+          animation: pulse 1s;
+      }
+    }
+    // background-color: blue;
+//come back to styling the image upload button
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+
+  }
