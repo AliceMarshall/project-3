@@ -8,7 +8,7 @@ const dateNightSchema = new mongoose.Schema({
   rating: { type: Number },
   comments: { type: String },
   complete: { type: Boolean },
-  // createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
   dateAddress: { type: String },
   geometry: {
     lat: { type: Number },

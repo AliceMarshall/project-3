@@ -3,7 +3,7 @@ $red: red;
 $main-color: #FF999C;
 $white: white;
 $blue: #8AE9FF;
-$transparent-blue: rgba(138, 233, 255, 0.7);
+$transparent-blue: rgba(138, 233, 255, 0.3);
 
 // ------------------------Global Styles-------------------------------------------
 .centered-styles {
@@ -167,9 +167,6 @@ nav {
     // background-color: blue;
   }
 }
-
-
-
 img {
   max-width: 100%;
 }
@@ -205,10 +202,6 @@ img {
   margin-left: 33%;
 }
 
-.loginForm {
-  margin-top: 50%;
-}
-
 
 .datesIndex {
   width: 100%;
@@ -234,6 +227,28 @@ img {
     }
   }
 }
+.datePic {
+  max-width: 250px;
+  max-height: 250px;
+  border-radius: 50%;
+}
+
+.date {
+  float: left;
+}
+
+.datesContent {
+  margin-left: -45%;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  color: #88dcef;
+}
+
+a {
+      color: $blue;
+    }
 
 // -------------------------------------------New Date--------------------
 #newDate {
@@ -257,51 +272,30 @@ img {
     float: right;
     h2 {
       font-weight: bold;
+      margin-left: 25%;
+      margin-top: 10%;
     }
     // background-color: blue;
   }
 }
-
-.datePic {
-  max-width: 250px;
-  max-height: 250px;
-  border-radius: 50%;
-}
-
-.date {
-  float: left;
-}
-
-.datesContent {
-  margin-left: -45%;
-}
-
-h2 {
-  font-family: 'Poppins', sans-serif;
-  color: #88dcef;
-}
-
-a {
-      color: $blue;
-      margin-left: 25%;
-    }
-      #newForm {
+      .mainform {
         // border: 1px solid grey;
         border-radius: 5%;
         padding: 30px;
         background-color: $transparent-blue;
         color: white;
       }
-    button {
+    .button {
       background: none;
       color: $blue;
       border: none;
       padding: 5px 20px;
       margin-left: 35%;
       margin-top: 10%;
-      font-size: 20px;
+      font-size: 25px;
       font-weight: bold;
         &:hover {
+          background: none;
           color:$main-color;
           animation: pulse 1s;
       }
@@ -309,6 +303,58 @@ a {
     // background-color: blue;
 //come back to styling the image upload button
 
+//----------------------------------login----------------------------------------
+.login {
+    width: 100%;
+    height: 100%;
+    .left {
+      width: 40%;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      position: absolute;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url('/images/popcorn-movie-party-entertainment.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .row {
+      width: 60%;
+      margin: 5% -5% 5% 0;
+      right: 0;
+      float: right;
+      h2 {
+        font-weight: bold;
+        margin-top: 10%;
+      }
+      h3 {
+        color: grey;
+        font-size: 15px;
+        text-align: center;
+      }
+      .register {
+        font-size: 15px;
+        &:hover {
+          background: none;
+          color: $main-color;
+        }
+      }
+      // background-color: blue;
+    }
+  .loginForm {
+    border-radius: 5%;
+    padding: 40px;
+    background-color: $transparent-blue;
+    color: white;
+  }
+  
+
+}
+
+
+
+
+// --------------------------------Animations-------------------------------------
   @keyframes pulse {
     0% {
       transform: scale(1);
