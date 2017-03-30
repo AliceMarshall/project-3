@@ -4,9 +4,9 @@ angular
 
 Restaurants.$inject = ['$http'];
 function Restaurants($http) {
-  this.getRestaurants = function getRestaurants(userLat, userLng) {
+  this.getRestaurants = function getRestaurants(lat, lng) {
     return $http
-            .get('/api/restaurants', { params: { userLat, userLng } })
+            .get('/api/restaurants', { params: { lat, lng } })
             .then((response) => {
               // console.log(response.data);
               return response.data;

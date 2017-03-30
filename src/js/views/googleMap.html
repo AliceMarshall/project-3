@@ -1,11 +1,12 @@
 <div ng-controller="DateNightsEditCtrl as dateNightsEdit" class="container">
-  <google-map cinemas="cinemas.all" ng-if="main.currentUser.$resolved && cinemas.date" user="main.currentUser" date-person="cinemas.date" center="cinemas.center" radius="cinemas.radius" selected="cinemas.selected"></google-map>
+  <google-map cinemas="cinemas.all" ng-if="main.currentUser.$resolved && cinemas.date" user="main.currentUser" date-person="cinemas.date" center="cinemas.center" radius="cinemas.radius" selected="cinemas.selected" lat="dateNightsEdit.dateNight.cinema.lat" lng="dateNightsEdit.dateNight.cinema.lng" name="dateNightsEdit.dateNight.cinema.name"></google-map>
   <div style="width:100%">
    <input type="range" min="1000" max="10000" value="5000" ng-model="cinemas.radius">
   </div>
 
   <div ng-show="cinemas.info.cinemaId" class="row">
     <h1>Listings for: {{cinemas.selected.name}}</h1>
+    <h1>{{dateNightsEdit.dateNight}}</h1>
 
     <button class="btn btn-success" ng-click="dateNightsEdit.update()">Add to my date</button>
 

@@ -12,17 +12,17 @@ function restaurantMap($window) {
     scope: {
       center: '=',
       restaurants: '=',
-      user: '='
+      date: '='
     },
     link($scope, element) {
-      // console.log('scope', $scope.restaurants);
+      // console.log('scope', $scope.date.cinema.lat);
       // console.log('user scope', $scope.user.geometry.lat);
 
       let infoWindow = null;
       const radius = 2000;
       let marker = null;
 
-      const cinemaLatLng = { lat: 51.544235, lng: -0.051672 };
+      const cinemaLatLng = { lat: $scope.date.cinema.lat, lng: $scope.date.cinema.lng };
       const markers = [];
 
       // const userLat = ;
@@ -69,7 +69,7 @@ function restaurantMap($window) {
             content: `<div><p>${restaurant.name}<br>${restaurant.vicinity}<br>${'&star;'.repeat(restaurant.rating)}</p></div>`
           };
           infoWindow = new google.maps.InfoWindow(infoWindowOptions);
-          infoWindow.open(map, marker);
+          infoWindow.open(map, this);
         });
       }
     }
