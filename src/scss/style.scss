@@ -536,6 +536,7 @@ h2 {
     float: right;
     h2 {
       font-weight: bold;
+      text-align: center;
     }
     h3 {
       color: grey;
@@ -551,10 +552,20 @@ h2 {
     input {
       margin: 10px;
     }
-}
+    textarea {
+      margin-left: 10px;
+    }
+    .rating {
+      display: inline-block;
+      margin-top: 30px;
+      margin-left: 35%;
 
+    }
+}
   .generalbutton {
   @extend .generalbutton;
+    margin: 10px;
+    margin-left: 30px;
   }
 }
 

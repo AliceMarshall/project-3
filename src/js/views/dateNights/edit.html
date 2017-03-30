@@ -15,7 +15,7 @@
               <input type="date" class="form-control" name="when" id="when" ng-model="dateNightsEdit.dateNight.when" placeholder="">
             </div>
             <div class="form-group">
-              <input type="file" base64 name="base64" id="image" ng-model="dateNightsEdit.dateNight.base64">
+              <input class="fileupload" type="file" base64 name="base64" id="image" ng-model="dateNightsEdit.dateNight.base64">
             </div>
             <div class="form-group">
               <input type="text" class="form-control" placeholder="which cinema did you go to" name="cinema.name" id="cinema.name" ng-model="dateNightsEdit.dateNight.cinema.name">
@@ -24,12 +24,11 @@
               <input type="text" placeholder="which film did you see?" class="form-control" name="film" id="film" ng-model="dateNightsEdit.dateNight.cinema.film">
             </div>
             <div class="form-group">
-              <label for="name">Which Restaurant did you go to?</label>
               <input type="text" class="form-control" name="restaurant" id="restaurant" ng-model="dateNightsEdit.dateNight.restaurant.name">
             </div>
             <div class="form-group">
-              <span uib-rating ng-model="dateNightsEdit.dateNight.rating" max="5" read-only="false"></span>
               <textarea type="text" class="form-control" placeholder="how was the date?"name="comment" id="comments" ng-model="dateNightsEdit.dateNight.comments"></textarea>
+              <span class="rating" uib-rating ng-model="dateNightsEdit.dateNight.rating" max="5" read-only="false"></span>
             </div>
             <button role="button" class="generalbutton" ui-sref="dateNightsShow({ id: dateNightsEdit.DateNight.id })">Cancel</button>
             <button class="generalbutton" ng-disabled="editForm.editDate.$invalid">Update</button>
