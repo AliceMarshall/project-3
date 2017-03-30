@@ -10,7 +10,8 @@ function restaurants(req, res, next) {
     qs: {
       radius: 2000,
       types: 'restaurant',
-      key: 'AIzaSyAuB54cgB1gVocRFYg7ANG8JTuQXeFyN2s'
+      rankby: '',
+      key: 'AIzaSyDfhMcvyXqnc1SJ-fShGvO6_iAD45aU6mo'
     }
   };
 
