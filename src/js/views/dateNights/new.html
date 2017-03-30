@@ -5,6 +5,7 @@
     <h2>Create Your Date</h2>
       <div class="col-md-6 col-md-offset-2">
         <form id="newForm" name="newDate.newDateForm" ng-submit="dateNightsNew.create()" novalidate>
+          <div class= "mainform">
           <div class="form-group">
               <input type="text" class="form-control" name="name" id="name" ng-model="dateNightsNew.dateNight.nameOfDate" placeholder= "name of your date" required />
               <div ng-messages="newDate.newDateForm.name.$error" ng-show="newDate.newDateForm.$submitted || newDate.newDateForm.name.$touched || newDate.newDateForm.name.$empty" role="alert">
@@ -27,9 +28,10 @@
             <input type="file" base64 name="base64" id="image" ng-model="dateNightsNew.dateNight.base64">
             </label>
           </div>
-          <button class="btn btn-success" ng-disabled="newDate.newDateForm.$invalid">Create</button>
-        </form>
-      </div>
+        <button class="button" ng-disabled="newDate.newDateForm.$invalid">Create</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
 </div>
