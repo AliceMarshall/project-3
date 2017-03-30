@@ -1,5 +1,4 @@
 <div ng-controller="DateNightsEditCtrl as dateNightsEdit" class="container">
-
   <google-map cinemas="cinemas.all" ng-if="main.currentUser.$resolved && cinemas.date" user="main.currentUser" date-person="cinemas.date" center="cinemas.center" radius="cinemas.radius" selected="cinemas.selected" lat="dateNightsEdit.dateNight.cinema.lat" lng="dateNightsEdit.dateNight.cinema.lng" name="dateNightsEdit.dateNight.cinema.name"></google-map>
 
   <div style="width:100%">

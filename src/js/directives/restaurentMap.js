@@ -73,7 +73,13 @@ function restaurantMap($window) {
 
         markers.push(marker);
 
-        const htmlElement = `<div id="infoWindow"><p>${restaurant.name}<br>${restaurant.vicinity}<br>${'&star;'.repeat(restaurant.rating)}</p></div>`;
+        const htmlElement = `<div id="infoWindow">
+                              <img src="${restaurant.icon}">
+                              <h3>${restaurant.name}</h3>
+                              <p>${restaurant.vicinity}</p>
+                              <p>${'&star;'.repeat(restaurant.rating)}</p>
+                              <a>See More Info</a>
+                             </div>`;
 
         google.maps.event.addListener(marker, 'click', function () {
           if(infoWindow) infoWindow.close();

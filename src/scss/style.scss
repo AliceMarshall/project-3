@@ -129,7 +129,7 @@ nav {
   overflow-y: hidden;
   height: 100vh;
   width: 100%;
-  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('/images/homepage.jpg');
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('/images/home.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -140,6 +140,11 @@ nav {
     font-weight: bold;
     letter-spacing: -3px;
   }
+}
+
+.title {
+  margin-top: -5%;
+  text-shadow: 2px 2px grey;
 }
 // -------------------------------------------Index Page------------------------
 .all-dates {
@@ -170,8 +175,41 @@ nav {
 
 
 
+
+
 img {
   max-width: 100%;
+}
+
+// -------------------------------------------Show Page------------------------
+.dateShow {
+  width: 100%;
+  height: 100%;
+  .left {
+    width: 40%;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    position: absolute;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url('/images/food.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .row {
+    width: 60%;
+    margin: 5% -5% 5% 0;
+    right: 0;
+    float: right;
+    h2 {
+      font-weight: bold;
+    }
+    // background-color: blue;
+  }
+}
+
+.showPic {
+  max-height: 300px;
 }
 
 // ---------------------------------map and listings-----------------------
@@ -209,6 +247,7 @@ img {
   margin-top: 50%;
 }
 
+/// dates index ///
 
 .datesIndex {
   width: 100%;
@@ -218,21 +257,36 @@ img {
     top: 0;
     left: 0;
     height: 100vh;
-    position: absolute;
     background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url('/images/flower.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    position: fixed;
   }
-  .row {
-    width: 60%;
-    margin: 5% -5% 5% 0;
+  .right  {
+    width: 50%;
+    margin: 5% 5% 5% 0;
     right: 0;
     float: right;
-    h2 {
-      font-weight: bold;
+    background-color: pink;
+    .row {
+      img {
+        max-height: 250px;
+        max-width: 250px;
+        margin: 15px 0;
+      }
+      h2 {
+        font-weight: bold;
+        margin-left: 10%;
+        text-align: left;
+      }
     }
+
   }
+}
+
+.subheader {
+  font-size: 15px;
 }
 
 // -------------------------------------------New Date--------------------
@@ -262,19 +316,6 @@ img {
   }
 }
 
-.datePic {
-  max-width: 250px;
-  max-height: 250px;
-  border-radius: 50%;
-}
-
-.date {
-  float: left;
-}
-
-.datesContent {
-  margin-left: -45%;
-}
 
 h2 {
   font-family: 'Poppins', sans-serif;

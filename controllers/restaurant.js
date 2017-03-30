@@ -11,7 +11,7 @@ function restaurants(req, res, next) {
       radius: 2000,
       types: 'restaurant',
       rankby: '',
-      key: 'AIzaSyDfhMcvyXqnc1SJ-fShGvO6_iAD45aU6mo'
+      key: 'AIzaSyCJSKAf9FPA5IDHFM1twUYKEZGqOD3BIDQ'
     }
   };
 
