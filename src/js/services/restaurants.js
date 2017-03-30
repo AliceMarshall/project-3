@@ -8,7 +8,6 @@ function Restaurants($http) {
     return $http
             .get('/api/restaurants', { params: { lat, lng } })
             .then((response) => {
-              // console.log(response.data);
               return response.data;
             });
   };

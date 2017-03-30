@@ -12,7 +12,11 @@ function restaurantMap($window) {
     scope: {
       center: '=',
       restaurants: '=',
-      date: '='
+      date: '=',
+      selected: '=',
+      lat: '=',
+      lng: '=',
+      name: '='
     },
     link($scope, element) {
       // console.log('scope', $scope.date.cinema.lat);
@@ -42,14 +46,20 @@ function restaurantMap($window) {
         radius: radius
       });
 
-      const restaurants = $scope.restaurants.slice(0, 10);
-      restaurants.forEach(function(restaurant){
-        // console.log('restaurant', restaurant);
-        restaurant.latitude = restaurant.geometry.location.lat;
-        restaurant.longitude = restaurant.geometry.location.lng;
+      const restaurants = $scope.restaurants.slice(20,35);
 
-        addMarker(restaurant);
-      });
+      function addRestaurants() {
+        restaurants.forEach(function(restaurant){
+          // console.log('restaurant', restaurant);
+          restaurant.latitude = restaurant.geometry.location.lat;
+          restaurant.longitude = restaurant.geometry.location.lng;
+
+          addMarker(restaurant);
+        });
+      }
+
+      $scope.$watch('restaurants', addRestaurants);
+
 
       function addMarker(restaurant) {
         const latLng = { lat: restaurant.latitude, lng: restaurant.longitude };
@@ -63,12 +73,24 @@ function restaurantMap($window) {
 
         markers.push(marker);
 
+        const htmlElement = `<div id="infoWindow"><p>${restaurant.name}<br>${restaurant.vicinity}<br>${'&star;'.repeat(restaurant.rating)}</p></div>`;
+
         google.maps.event.addListener(marker, 'click', function () {
           if(infoWindow) infoWindow.close();
-          var infoWindowOptions = {
-            content: `<div><p>${restaurant.name}<br>${restaurant.vicinity}<br>${'&star;'.repeat(restaurant.rating)}</p></div>`
-          };
-          infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+          infoWindow = new google.maps.InfoWindow({
+            content: htmlElement
+          });
+
+          google.maps.event.addListener(infoWindow, 'domready', () => {
+            document.getElementById('infoWindow').onclick = function handleWindowClick() {
+              $scope.selected = restaurant;
+              $scope.lat = restaurant.latitude;
+              $scope.lng = restaurant.longitude;
+              $scope.name = restaurant.name;
+              $scope.$apply();
+            };
+
+          });
           infoWindow.open(map, this);
         });
       }

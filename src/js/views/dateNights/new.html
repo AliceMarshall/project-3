@@ -1,44 +1,36 @@
-<div class="conatiner">
+<div id="newDate" class="conatiner">
+  <div class="left"></div>
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h2>Create Your Date</h2>
-      <form name="newDate.newDateForm" ng-submit="dateNightsNew.create()" novalidate>
-
-        <div class="form-group">
-          <label for="name">Name of Date</label>
-            <input type="text" class="form-control" name="name" id="name" ng-model="dateNightsNew.dateNight.nameOfDate" required/>
-
-            <div ng-messages="newDate.newDateForm.name.$error" ng-show="newDate.newDateForm.$submitted || newDate.newDateForm.name.$touched || newDate.newDateForm.name.$empty" role="alert">
-              <div ng-message="required">Username is required.</div>
-            </div>
-          </div>
-
+    <div class ="center">
+    <h2>Create Your Date</h2>
+      <div class="col-md-6 col-md-offset-2">
+        <form id="newForm" name="newDate.newDateForm" ng-submit="dateNightsNew.create()" novalidate>
           <div class="form-group">
-            <label for="when">When's the Date?</label>
-            <input type="date" class="form-control" name="when" id="when" ng-model="dateNightsNew.dateNight.when">
-          </div>
-
-        <div>
-          <label for="dateAddress">Your Date's Location</label>
-          <input type="text" class="form-control" autocomplete ng-model="dateNightsNew.dateNight.dateAddress" geometry="dateNightsNew.dateNight.geometry" required name="dateAddress" id="dateAddress">
-          <p>The user object: {{ dateNightsNew.dateNight }}</p>
-
-            <div ng-messages="newDate.newDateForm.dateAddress.$error" ng-show="newDate.newDateForm.$submitted || newDate.newDateForm.dateAddress.$touched" role="alert">
-              <p ng-message="required">Address is required.</p>
+              <input type="text" class="form-control" name="name" id="name" ng-model="dateNightsNew.dateNight.nameOfDate" placeholder= "name of your date" required />
+              <div ng-messages="newDate.newDateForm.name.$error" ng-show="newDate.newDateForm.$submitted || newDate.newDateForm.name.$touched || newDate.newDateForm.name.$empty" role="alert">
+                <div ng-message="required">Username is required.</div>
+              </div>
             </div>
-
-          <input type="hidden" ng-model="dateNight.lat" name="lat">
-          <input type="hidden" ng-model="dateNight.lng" name="lng">
-        </div>
-
-        <div class="form-group">
-          <label for="base64">Image</label>
-          <input type="file" base64 name="base64" id="image" ng-model="dateNightsNew.dateNight.base64">
-        </div>
-
-        <button role="button" class="btn btn-primary" ui-sref="dateNightsIndex">Cancel</button>
+            <div class="form-group">
+              <input type="date" class="form-control" name="when" id="when" ng-model="dateNightsNew.dateNight.when" placeholder= "when's the date?">
+            </div>
+          <div>
+            <input type="text" class="form-control" autocomplete ng-model="dateNightsNew.dateNight.dateAddress" geometry="dateNightsNew.dateNight.geometry" required name="dateAddress" id="dateAddress" placeholder = "enter your date's location">
+              <div ng-messages="newDate.newDateForm.dateAddress.$error" ng-show="newDate.newDateForm.$submitted || newDate.newDateForm.dateAddress.$touched" role="alert">
+                <p ng-message="required">Address is required.</p>
+              </div>
+            <input type="hidden" ng-model="dateNight.lat" name="lat">
+            <input type="hidden" ng-model="dateNight.lng" name="lng">
+          </div>
+          <div class="form-group">
+            <label class="myLabel" for="base64">Image
+            <input type="file" base64 name="base64" id="image" ng-model="dateNightsNew.dateNight.base64">
+            </label>
+          </div>
+        </form>
         <button class="btn btn-success" ng-disabled="newDate.newDateForm.$invalid">Create</button>
-      </form>
+
+      </div>
     </div>
   </div>
 </div>

@@ -117,11 +117,6 @@ function googleMap($window) {
                               <p>${cinema.vicinity}</p>
                               <a ng-click="addCinema(${cinema.geometry.location.lat}, ${cinema.geometry.location.lng} )">Choose this cinema for your date</a>
                             </div>`;
-        // const compiled = $compile(htmlElement)($scope);
-
-        // const infoWindowOptions = {
-        //   content: compiled[0]
-        // };
 
         google.maps.event.addListener(marker, 'click', function() {
           if(infoWindow) infoWindow.close();
