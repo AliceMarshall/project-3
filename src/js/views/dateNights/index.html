@@ -1,18 +1,10 @@
-<div class="datesIndex">
-  <div class="left"></div>
-  <div class="right">
-    <h2>date possibilities</h2>
-    <div ng-repeat="dateNight in dateNightsIndex.all" class="col-md-12 datesContent">
-      <div class="row date">
-          <div class="col-md-6">
-            <img class="datePic" ng-src="{{ dateNight.imageSRC }}">
-          </div>
-          <div class="col-md-9">
-            <a ui-sref="dateNightsShow({ id: dateNight.id })"><h2>{{ dateNight.nameOfDate }}</h2></a>
-            <p> <h2 class="subheader">We Watched..</h2>{{ dateNight.cinema.film }} at {{ dateNight.cinema.name }}</p>
-            <p> <h2 class="subheader">We ate at..</h2>{{ dateNight.restaurant.name }}</p>
-          </div>
-      </div>
+<div class="container">
+  <h2>date possibilities</h2>
+  <div class="row">
+    <div ng-repeat="dateNight in dateNightsIndex.all" class="col-md-4 dates-content">
+      <a ui-sref="dateNightsShow({ id: dateNight.id })"><h3>{{ dateNight.nameOfDate }}</h3></a>
+      <p ng-show="dateNight.cinema.film"> <h3 class="subheader">We Watched..</h3>{{ dateNight.cinema.film }} at {{ dateNight.cinema.name }}</p>
+      <p ng-show="dateNight.restaurant.name"> <h3 class="subheader">We ate at..</h3>{{ dateNight.restaurant.name }}</p>
     </div>
   </div>
 </div>
