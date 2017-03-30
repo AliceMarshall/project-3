@@ -52,7 +52,8 @@ DateNightsEditCtrl.$inject = ['DateNight', '$stateParams', '$state', '$scope'];
 function DateNightsEditCtrl(DateNight, $stateParams, $state, $scope) {
   const vm = this;
   vm.dateNight = {
-    cinema: null
+    cinema: null,
+    restaurant: null
   };
 
   vm.dateNight = DateNight.get($stateParams);
@@ -71,7 +72,6 @@ function DateNightsEditCtrl(DateNight, $stateParams, $state, $scope) {
   }
 
   vm.addFilm = addFilm;
-
 
 }
 
