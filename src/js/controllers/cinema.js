@@ -61,8 +61,9 @@ function CinemaCtrl(cinemas, films, showtimes, User, DateNight, $stateParams, $a
   }
 
   function getCinemas() {
+    console.log(vm.center.toJSON());
     if(vm.center) {
-      cinemas.getCinemas(vm.center.lat, vm.center.lng)
+      cinemas.getCinemas(vm.center.lat(), vm.center.lng())
       .then((data)=> {
         return vm.all = data;
       });
