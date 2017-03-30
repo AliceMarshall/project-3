@@ -78,7 +78,7 @@ function restaurantMap($window) {
                               <h3>${restaurant.name}</h3>
                               <p>${restaurant.vicinity}</p>
                               <p>${'&star;'.repeat(restaurant.rating)}</p>
-                              <a>Choose this cinema</a>
+                              <a>See More Info</a>
                              </div>`;
 
         google.maps.event.addListener(marker, 'click', function () {

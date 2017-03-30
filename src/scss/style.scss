@@ -74,56 +74,59 @@ body {
 }
 
 nav {
-  > div {
-    z-index: 2;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    transition: all 0.3s ease-in-out;
-    text-align: center;
-    &.right {
-      background-color: rgba(0, 0, 0, 0.25);
-      top: -100%;
-    }
-    .links {
-      // @extend .centered-styles;
-      ul {
-        background: none;
-        float: right;
-        margin: 20px 60px 0 0;
-        li {
-          line-height: 1.5;
-          list-style: none;
-          color: white;
-          a {
-            font-size: 20px;
-            color: white;
-            text-decoration: none;
-            display: block;
-            font-weight: bold;
-            &:hover {
-              color: $main-color;
-              // animation: pulse 0.75s infinite;
-              background: none;
-            }
-            &.active {
-              color: white;
-              opacity: 0.7;
-              animation: none;
-              text-decoration: underline;
-            }
-          }
-        }
-      }
-    }
+   > div {
+     z-index: 2;
+     width: 100%;
+     height: 10%;
+     position: absolute;
+     top: 0;
+     transition: all 0.3s ease-in-out;
+     background-color: rgba(0, 0, 0, 0.3);
+    //  text-align: center;
+     &.right {
+       top: -100%;
+       background-color: rgba(0, 0, 0, 0.3);
+     }
+     .links {
+       // @extend .centered-styles;
+       ul {
+         background: none;
+         float: right;
+         text-align: left;
+         margin: 20px 60px 0 0;
+         li {
+           white-space: nowrap;
+           line-height: 1.5;
+           list-style: none;
+           color: white;
+           a {
+             font-size: 18px;
+             color: white;
+             text-decoration: none;
+             display: inline-block;
+             font-weight: bold;
+             &:hover {
+               color: $main-color;
+               // animation: pulse 0.75s infinite;
+               background: none;
+             }
+             &.active {
+               color: white;
+               opacity: 0.7;
+               animation: none;
+               text-decoration: underline;
+             }
+           }
+         }
+       }
+     }
+   }
+   &.open {
+     .right {
+       top: 0;
+     }
+   }
   }
-  &.open {
-    .right {
-      top: 0;
-    }
-  }
-}
 // -----------------------------------------Home Page----------------------------
 .home-page {
   overflow-y: hidden;
@@ -168,6 +171,7 @@ nav {
   }
 }
 
+//----------------    CINEMA GMAP PAGE ---------------------
 body {
   &.cinemas {
     margin: 3% 0;
@@ -208,6 +212,12 @@ body {
 
   }
 }
+.google-map {
+  margin-top: 15px;
+  height: 600px;
+  width: 100%;
+  background-color: grey;
+}
 
 img {
   max-width: 100%;
@@ -227,30 +237,7 @@ img {
 }
 
 
-.datesIndex {
-  width: 100%;
-  height: 100%;
-  .left {
-    width: 40%;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    position: absolute;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url('/images/flower.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  .row {
-    width: 60%;
-    margin: 5% -5% 5% 0;
-    right: 0;
-    float: right;
-    h2 {
-      font-weight: bold;
-    }
-  }
-}
+
 
 // -------------------------------------------New Date--------------------
 #newDate {
@@ -299,42 +286,43 @@ h2 {
 }
 
 a {
-      color: $blue;
-      margin-left: 25%;
-    }
-      #newForm {
-        // border: 1px solid grey;
-        border-radius: 5%;
-        padding: 30px;
-        background-color: $transparent-blue;
-        color: white;
-      }
-    button {
-      background: none;
-      color: $blue;
-      border: none;
-      padding: 5px 20px;
-      margin-left: 35%;
-      margin-top: 10%;
-      font-size: 20px;
-      font-weight: bold;
-        &:hover {
-          color:$main-color;
-          animation: pulse 1s;
-      }
-    }
+  color: $blue;
+}
+
+#newForm {
+  // border: 1px solid grey;
+  border-radius: 5%;
+  padding: 30px;
+  background-color: $transparent-blue;
+  color: white;
+}
+
+button {
+  background: none;
+  color: $blue;
+  border: none;
+  padding: 5px 20px;
+  margin-left: 35%;
+  margin-top: 10%;
+  font-size: 20px;
+  font-weight: bold;
+  &:hover {
+    color:$main-color;
+    animation: pulse 1s;
+  }
+}
     // background-color: blue;
 //come back to styling the image upload button
 
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05);
-    }
-    100% {
-      transform: scale(1);
-    }
-
+@keyframes pulse {
+  0% {
+    transform: scale(1);
   }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+
+}
