@@ -1,14 +1,16 @@
-<div class="all-dates">
+<div class="datesIndex">
   <div class="left"></div>
   <div class="row">
     <h2>date possibilities</h2>
-    <div ng-repeat="dateNight in dateNightsIndex.all" class="col-md-12">
-      <img ng-src="{{ dateNight.imageSRC}}">
-      <a ui-sref="dateNightsShow({ id: dateNight.id })"><h2>{{ dateNight.nameOfDate }}</h2></a>
-      <p>{{ dateNight.when | date: 'dd-mm-yyyy'  }}</p>
-      <p> {{ dateNight.cinema.name }}</p>
-      <p> {{ dateNight.restaurant.name }}</p>
-      <div>
+    <div ng-repeat="dateNight in dateNightsIndex.all" class="col-md-12 datesContent">
+      <div class="row date">
+          <div class="col-md-6">
+            <img class="datePic" ng-src="{{ dateNight.imageSRC}}">
+          </div>
+        <a ui-sref="dateNightsShow({ id: dateNight.id })"><h2>{{ dateNight.nameOfDate }}</h2></a>
+        <p>{{ dateNight.when | date: 'dd-MM-yyyy'  }}</p>
+        <p> {{ dateNight.cinema.name }}</p>
+        <p> {{ dateNight.restaurant.name }}</p>
         <span uib-rating ng-model="dateNightsIndex.rating" max="10" read-only="true"></span>
       </div>
     </div>

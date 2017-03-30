@@ -201,3 +201,54 @@ img {
 .loginForm {
   margin-top: 50%;
 }
+
+/// dates index ///
+
+.datesIndex {
+  width: 100%;
+  height: 100%;
+  .left {
+    width: 40%;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    position: absolute;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url('/images/flower.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .row {
+    width: 60%;
+    margin: 5% -5% 5% 0;
+    right: 0;
+    float: right;
+    h2 {
+      font-weight: bold;
+    }
+    // background-color: blue;
+  }
+}
+
+.datePic {
+  max-width: 250px;
+  max-height: 250px;
+  border-radius: 50%;
+}
+
+.date {
+  float: left;
+}
+
+.datesContent {
+  margin-left: -45%;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  color: #88dcef;
+}
+
+a {
+  color: inherit;
+}
