@@ -1,6 +1,8 @@
-<div class="container">
+<div class="all-dates">
+  <div class="left"></div>
   <div class="row">
-    <div ng-repeat="dateNight in dateNightsIndex.all" class="col-md-6">
+    <h2>date possibilities</h2>
+    <div ng-repeat="dateNight in dateNightsIndex.all" class="col-md-12">
       <img ng-src="{{ dateNight.imageSRC}}">
       <a ui-sref="dateNightsShow({ id: dateNight.id })"><h2>{{ dateNight.nameOfDate }}</h2></a>
       <p>{{ dateNight.when | date: 'dd-mm-yyyy'  }}</p>
