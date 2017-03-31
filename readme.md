@@ -76,6 +76,8 @@ All the date records created by all users are available on the date Index page, 
 
 * The team had intended to use the CityMapper API to calculate journey times using public transport between the two locations, however there was not time to incorporate this into the app.
 
+* Some of the API requests take a little time to display, a loading button would improve the user experience for these pages.
+
 
 <h3>Challenges </h3>
 Writing the search function for displaying the cinemas within a certain radius of the locations was a complex task, and it would not have been possible to implement this functionality within the timeframe if this project had not been a group project.
