@@ -11,12 +11,16 @@ function UsersIndexCtrl(User) {
   vm.all = User.query();
 }
 
-UsersShowCtrl.$inject = ['User', '$stateParams', '$state'];
-function UsersShowCtrl(User, $stateParams, $state) {
+UsersShowCtrl.$inject = ['User', 'DateNight', '$stateParams', '$state'];
+function UsersShowCtrl(User, DateNight, $stateParams, $state) {
   const vm = this;
+  vm.userDates = [];
 
-  vm.user = User.get($stateParams);
-  console.log($stateParams);
+  vm.user = User.get($stateParams, (user) => {
+    vm.user = user;
+    vm.userDates = DateNight.query({ createdBy: user.id });
+    console.log(vm.userDates);
+  });
 
   function usersDelete() {
     vm.user

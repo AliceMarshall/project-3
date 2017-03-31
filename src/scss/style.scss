@@ -295,7 +295,7 @@ nav {
     top: 0;
     left: 0;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url('/images/food.jpg');
     background-repeat: no-repeat;
     background-position: center;
@@ -303,7 +303,7 @@ nav {
   }
   .right .row {
     width: 60%;
-    margin: 5% -5% 5% 0;
+    margin: 5% -5% 0 0;
     right: 0;
     float: right;
     h2 {
@@ -311,6 +311,7 @@ nav {
       text-transform: capitalize;
     }
     .listings {
+      margin-bottom: -100px;
       h4 {
         font-weight: bold;
       }
@@ -329,7 +330,8 @@ nav {
 }
 
 .showPic {
-  max-height: 300px;
+  max-height: 250px;
+  margin-bottom: -50px;
 }
 
 // ---------------------------------map and listings-----------------------
@@ -364,6 +366,66 @@ img {
         color: $dark-red;
         @extend .htwo-styles;
               margin-bottom: 35px;
+      }
+    }
+  }
+}
+
+/// dates index ///
+.usersShow {
+  margin: 30px auto;
+  // text-align: center;
+  .dates-content {
+    margin: 40px 10px 10px;
+    border-radius: 5%;
+    border: 4px solid $transparent-red;
+    max-width: 360px;
+    height: 250px;
+    a {
+
+      h3 {
+        color: $dark-red;
+        @extend .htwo-styles;
+              margin-bottom: 35px;
+      }
+    }
+  }
+}
+
+body {
+  &.usersShow {
+    width: 100%;
+    height: 100%;
+    margin: 30px auto;
+    .left {
+      width: 40%;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      position: fixed;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url('/images/bike-pic.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .other-side {
+      width: 60%;
+      margin: 5% -8% 5% 0;
+      right: 0;
+      float: right;
+      .dates-content {
+        margin: 40px 20% 10px;
+        border-radius: 5%;
+        border: 4px solid $transparent-red;
+        max-width: 360px;
+        height: 250px;
+        a {
+          h3 {
+            color: $dark-red;
+            @extend .htwo-styles;
+                  margin-bottom: 35px;
+          }
+        }
       }
     }
   }
@@ -445,55 +507,55 @@ body {
 //----------------------------------login----------------------------------------
 body {
   &.login {
-        width: 100%;
-        height: 100%;
-        .left {
-          width: 40%;
-          top: 0;
-          left: 0;
-          height: 100vh;
-          position: absolute;
-          background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url('/images/popcorn-movie-party-entertainment.jpg');
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: cover;
-        }
-        .row {
-          width: 60%;
-          margin: 5% -5% 5% 0;
-          right: 0;
-          float: right;
-          h2 {
-            font-weight: bold;
-            margin-top: 10%;
-          }
-          h3 {
-            color: grey;
-            font-size: 15px;
-            text-align: center;
-          }
-          .register {
-            font-size: 15px;
-            &:hover {
-              background: none;
-              color: $main-color;
-            }
-          }
-        }
-      .loginForm {
-        border-radius: 5%;
-        padding: 40px;
-        background-color: $transparent-red;
-        color: white;
-          input {
-            margin: 10px;
-          }
+    width: 100%;
+    height: 100%;
+    .left {
+      width: 40%;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      position: fixed;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url('/images/popcorn-movie-party-entertainment.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .row {
+      width: 60%;
+      margin: 5% -5% 5% 0;
+      right: 0;
+      float: right;
+      h2 {
+        font-weight: bold;
+        margin-top: 10%;
       }
-      .logBtns {
-        margin-left: 30px;
-          .loginbutton {
-            @extend .generalbutton;
-            }
+      h3 {
+        color: grey;
+        font-size: 15px;
+        text-align: center;
+      }
+      .register {
+        font-size: 15px;
+        &:hover {
+          background: none;
+          color: $main-color;
+        }
+      }
+    }
+    .loginForm {
+      border-radius: 5%;
+      padding: 40px;
+      background-color: $transparent-red;
+      color: white;
+        input {
+          margin: 10px;
+        }
+    }
+    .logBtns {
+      margin-left: 30px;
+      .loginbutton {
+        @extend .generalbutton;
+      }
       .btn {
         background: #3b5998;
         color: white;
@@ -521,7 +583,7 @@ body {
     top: 0;
     left: 0;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url('/images/popcorn-movie-party-entertainment.jpg');
     background-repeat: no-repeat;
     background-position: center;
@@ -574,7 +636,7 @@ body {
       top: 0;
       left: 0;
       height: 100vh;
-      position: absolute;
+      position: fixed;
       background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url('/images/setTable.jpg');
       background-repeat: no-repeat;
       background-position: center;

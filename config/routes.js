@@ -8,17 +8,17 @@ const restaurant = require('../controllers/restaurant');
 const showtimes = require('../controllers/showtimes');
 const imageUpload = require('../lib/imageUpload');
 const users = require('../controllers/users');
-// const secureRoute = require('../lib/secureRoute');
+const secureRoute = require('../lib/secureRoute');
 
 router.route('/dateNight')
   .get(dateNight.index)
-  .post(imageUpload, dateNight.create);
+  .post(secureRoute, imageUpload, dateNight.create);
   // .post(dateNight.create);
 
 router.route('/dateNight/:id')
-  .get(dateNight.show)
-  .put(dateNight.update)
-  .delete(dateNight.delete);
+  .get(secureRoute, dateNight.show)
+  .put(secureRoute, dateNight.update)
+  .delete(secureRoute,dateNight.delete);
 
 router.get('/cinemas', cinema.cinemasIntersect);
 
@@ -31,8 +31,8 @@ router.get('/restaurants', restaurant.restaurants);
 router.get('/users', users.index);
 
 router.route('/users/:id')
-  .get(users.show)
-  .delete(users.delete);
+  .get(secureRoute, users.show)
+  .delete(secureRoute, users.delete);
 
 router.route('/register')
   .post(auth.register);

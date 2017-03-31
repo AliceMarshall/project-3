@@ -2,7 +2,7 @@ const DateNight = require('../models/dateNight');
 
 function indexRoute(req, res, next) {
   DateNight
-    .find()
+    .find(req.query)
     .exec()
     .then((dateNights) => res.json(dateNights))
     .catch(next);
