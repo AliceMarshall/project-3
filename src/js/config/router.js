@@ -13,7 +13,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     })
 
     .state('dateNightsIndex', {//index page for all dates created by all users
-      url: '/date/index',
+      url: '/alldates',
       templateUrl: 'js/views/dateNights/index.html',
       controller: 'DateNightsIndexCtrl as dateNightsIndex'
     })
@@ -35,25 +35,19 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'DateNightsShowCtrl as dateNightsShow'
     })
 
-    .state('cinemas', {//shows details of the date record
+    .state('cinemas', {
       url: '/date/:id/addcinema',
       templateUrl: 'js/views/googleMap.html',
       controller: 'CinemaCtrl as cinemas'
     })
 
-    // .state('films', {//shows details of the date record
-    //   url: '/date/:id/films',
-    //   templateUrl: 'js/views/films.html',
-    //   controller: 'DateNightsEditCtrl as dateNightsEdit'
-    // })
-
-    .state('restaurants', {//shows details of the date record
+    .state('restaurants', {
       url: '/date/:id/findrestaurant',
       templateUrl: 'js/views/restaurantMap.html',
       controller: 'RestaurantCtrl as restaurants'
     })
 
-    .state('usersShow', {//index of all date created by that user.
+    .state('usersShow', {
       url: '/users/:id',
       templateUrl: 'js/views/users/show.html',
       controller: 'UsersShowCtrl as usersShow'

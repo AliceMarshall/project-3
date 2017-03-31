@@ -3,8 +3,8 @@
   <div class="row">
     <div ng-repeat="dateNight in dateNightsIndex.all" class="col-md-4 dates-content">
       <a ui-sref="dateNightsShow({ id: dateNight.id })"><h3>{{ dateNight.nameOfDate }}</h3></a>
-      <p ng-show="dateNight.cinema.film"> <h3 class="subheader">We Watched..</h3>{{ dateNight.cinema.film }} at {{ dateNight.cinema.name }}</p>
-      <p ng-show="dateNight.restaurant.name"> <h3 class="subheader">We ate at..</h3>{{ dateNight.restaurant.name }}</p>
+      <p ng-show="dateNight.cinema.film"><h4 class="subheader">We Watched...</h4><strong>{{ dateNight.cinema.film }} at {{ dateNight.cinema.name }}</strong></p>
+      <p ng-show="dateNight.restaurant.name"> <h4 class="subheader">We ate at...</h4><strong>{{ dateNight.restaurant.name }}</strong></p>
     </div>
   </div>
 </div>

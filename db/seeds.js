@@ -42,7 +42,8 @@ User.create([{
       name: 'Dip and Flip',
       lat: 51.4608224,
       lng: -0.1115101
-    }
+    },
+    createdBy: User[0]
   }]);
 })
 .then((dateNights) => {

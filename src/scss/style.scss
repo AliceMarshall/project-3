@@ -139,7 +139,6 @@ nav {
              }
              &.active {
                color: $dark-red;
-               opacity: 0.7;
                animation: none;
                text-decoration: underline;
              }
@@ -154,7 +153,7 @@ nav {
      }
    }
   }
-// -----------------------------------------Home Page----------------------------
+// --------------------------------Home Page----------------------------
 .home-page {
   overflow-y: hidden;
   height: 100vh;
@@ -165,63 +164,122 @@ nav {
   background-size: cover;
   h1 {
     @extend .centered-styles;
-    color: $white;
+    color: $main-color;
     font-size: 60px;
     font-weight: bold;
     letter-spacing: -3px;
+    text-shadow: 2px 2px $dark-red;
+    margin-top: -15%;
   }
 }
 
-.title {
-  margin-top: -5%;
-  text-shadow: 2px 2px grey;
-}
-// -------------------------------------------Index Page------------------------
+// ----------------------------------Index Page------------------------
 
 
 //----------------    CINEMA GMAP PAGE ---------------------
-body {
-  &.cinemas {
-    margin: 3% 0;
-    .left {
-      width: 40%;
-      // left: 0;
-      position: fixed;
-      .google-map {
-        margin-top: 15px;
-        height: 600px;
-        width: 100%;
-        background-color: grey;
+.cinemas {
+  .left {
+    width: 40%;
+    position: fixed;
+    h2 {
+      padding-top: 10px;
+    }
+    .google-map {
+      margin-top: 30px;
+      height: 600px;
+      width: 100%;
+      background-color: grey;
+    }
+    .slider {
+      width: 100%;
+      margin-top: 1%;
+      h4 {
+        display: inline;
       }
-      .slider {
-        width: 100%;
-        margin-top: 1%;
-        h4 {
-          display: inline;
-        }
-        input {
-          display: inline;
-        }
+      input {
+        display: inline;
       }
     }
-    .right {
-      width: 50%;
-      margin: 5% -5% 5% 0;
-      right: 0;
-      float: right;
-      .scrollable {
-        height: 450px;
-        overflow: scroll;
-        background-color: $dark-red;
-        margin: 1% 0;
-        border-radius: 5%;
-        h2 {
+  }
+  .other-side {
+    width: 50%;
+    right: 0;
+    float: right;
+    margin: 8% -5% 5% 0;
+    .btn {
+      width: 150px;
+      background-color: $dark-red;
+      border: none;
+      color: white;
+      text-transform: lowercase;
+      &:hover {
+        background-color: $transparent-red;
+      }
+    }
+    .scrollable {
+      height: 460px;
+      overflow: scroll;
+      background-color: $transparent-red;
+      margin: 3% 0;
+      padding: 0 30px;
+      border-radius: 5%;
+      li {
+        list-style: none;
+        h3 {
           color: white;
         }
+        .selected {
+          border: 2px solid $dark-red;
+          border-radius: 3%;
+        }
         p {
+          padding: 3px;
           font-size: 13px;
           color: white;
         }
+      }
+    }
+  }
+}
+
+
+.restaurants {
+  .left {
+    width: 40%;
+    position: fixed;
+    h2 {
+      padding-top: 10px;
+    }
+    .google-map {
+      margin-top: 30px;
+      height: 600px;
+      width: 100%;
+      background-color: grey;
+    }
+    .slider {
+      width: 100%;
+      margin-top: 1%;
+      h4 {
+        display: inline;
+      }
+      input {
+        display: inline;
+      }
+    }
+  }
+  .other-side {
+    width: 50%;
+    right: 0;
+    float: right;
+    margin: 8% -5% 5% 0;
+    .btn {
+      width: 150px;
+      background-color: $dark-red;
+      border: none;
+      color: white;
+      text-transform: lowercase;
+      &:hover {
+        background-color: $transparent-red;
       }
     }
   }
@@ -252,6 +310,11 @@ body {
       font-weight: bold;
       text-transform: capitalize;
     }
+    .listings {
+      h4 {
+        font-weight: bold;
+      }
+    }
     .btn {
       width: 150px;
       background-color: $dark-red;
@@ -262,15 +325,7 @@ body {
 
       }
     }
-    // background-color: red;
   }
-}
-
-.google-map {
-  margin-top: 15px;
-  height: 600px;
-  width: 100%;
-  background-color: grey;
 }
 
 .showPic {
@@ -295,18 +350,20 @@ img {
 
 /// dates index ///
 .dateNightsIndex {
-  margin: 30px auto 0;
+  margin: 30px auto;
   // text-align: center;
   .dates-content {
-    margin: 10px;
+    margin: 40px 10px 10px;
     border-radius: 5%;
     border: 4px solid $transparent-red;
     max-width: 360px;
-    height: 300px;
+    height: 250px;
     a {
+
       h3 {
         color: $dark-red;
         @extend .htwo-styles;
+              margin-bottom: 35px;
       }
     }
   }
@@ -329,7 +386,7 @@ body {
           background-position: center;
           background-size: cover;
         }
-        .row {
+        .other-side {
           width: 60%;
           margin: 5% -5% 5% 0;
           right: 0;
@@ -509,7 +566,7 @@ body {
 
 //---------------------------------Edit-------------------------------------------
 body {
-  .dateNightsEdit {
+  &.dateNightsEdit {
     width: 100%;
     height: 100%;
     .left {
@@ -518,52 +575,49 @@ body {
       left: 0;
       height: 100vh;
       position: absolute;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url('/images/popcorn-movie-party-entertainment.jpg');
+      background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url('/images/setTable.jpg');
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
     }
-    .row {
+    .other-side {
       width: 60%;
       margin: 5% -5% 5% 0;
       right: 0;
       float: right;
       h2 {
         font-weight: bold;
-        text-align: center;
+        // margin-top: 10%;
       }
       h3 {
         color: grey;
         font-size: 15px;
         text-align: center;
       }
+      .register {
+        font-size: 15px;
+        &:hover {
+          background: none;
+          color: $main-color;
+        }
+      }
     }
-    .col-md-8 {
+    .loginForm {
       border-radius: 5%;
-      padding: 40px;
       background-color: $transparent-red;
       color: white;
       input {
-        margin: 10px;
-      }
-      textarea {
-        margin-left: 10px;
-      }
-      .rating {
-        display: inline-block;
-        margin-top: 30px;
-        margin-left: 35%;
-
+        // margin: 10px;
       }
     }
-    .generalbutton {
-    @extend .generalbutton;
-      margin: 10px;
+    .logBtns {
       margin-left: 30px;
+      .loginbutton {
+        @extend .generalbutton;
+      }
     }
   }
 }
-
 
 
 
