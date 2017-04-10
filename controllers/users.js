@@ -11,6 +11,7 @@ function indexRoute(req, res, next) {
 function showRoute(req, res, next) {
   User
   .findById(req.params.id)
+  .populate('createdBy')
   .exec()
   .then((user) => {
     if(!user) return res.notFound();

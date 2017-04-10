@@ -1,9 +1,9 @@
 <div class="container">
   <div class="left"></div>
-  <div class="row">
+  <div class="row other-side">
     <div class="col-md-8 col-md-offset-2">
-      <h2>Edit Your Date</h2>
-      <form name="editForm.editDate" ng-submit="dateNightsEdit.update()"  novalidate>
+      <h2 class="text-center">Edit Your Date</h2>
+      <form id="newForm" name="editForm.editDate" ng-submit="dateNightsEdit.update()"  novalidate>
         <div class="form-group">
           <input type="text" class="form-control" name="name" id="name" ng-model="dateNightsEdit.dateNight.nameOfDate"  placeholder="who was your date?" required/>
           <div ng-messages="editForm.editDate.name.$error" ng-show="editForm.editDate.$submitted || editForm.editDate.name.$touched || editForm.editDate.name.$empty" role="alert">
@@ -27,6 +27,7 @@
         </div>
         <div class="form-group">
           <textarea type="text" class="form-control" placeholder="how was the date?"name="comment" id="comments" ng-model="dateNightsEdit.dateNight.comments"></textarea>
+          <p>rating</p>
           <span class="rating" uib-rating ng-model="dateNightsEdit.dateNight.rating" max="5" read-only="false"></span>
         </div>
         <button role="button" class="generalbutton" ui-sref="dateNightsShow({ id: dateNightsEdit.DateNight.id })">Cancel</button>
